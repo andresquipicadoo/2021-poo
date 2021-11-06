@@ -6,16 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-/******************
- * LetterButton class
- * 
- * Customized JButton that contain a single letter the x and y position it is in the Wordsearch
- * Button also changes s
- * 
- * @inherits JButton
- * @author Tech-Ranch
- *
- ******************/
+
 
 public class LetterButton extends JButton{
 	
@@ -52,22 +43,12 @@ public class LetterButton extends JButton{
 		setText(letter);
 	}
 	
-	/**
-	 * Accessor of the letter variable
-	 * @return the letter variable
-	 */
+	
 	public String getLetter(){
 		return letter;
 	}
 	
-	/**
-	 * Modifier of the selected variable
-	 * Set if the button was selected or not
-	 * If button is selected, the colour of it is darker
-	 * Otherwise if not, then the button would be white or cyan, 
-	 * depending if it's part of a found word or not
-	 * @param s - the boolean variable of selected
-	 */
+	
 	public void setSelected(boolean s){
 		this.selected = s;
 		if(s)
@@ -78,18 +59,12 @@ public class LetterButton extends JButton{
 			setBackground(Color.WHITE);
 	}
 	
-	/**
-	 * Accessor of the selected variable
-	 * @return selected variable
-	 */
+	
 	public boolean getSelected(){
 		return selected;
 	}
 	
-	/**
-	 * Accessor of the xPos variable
-	 * @return xPos - the x position of the button
-	 */
+	
 	public int getXPos(){
 		return xPos;
 	}
@@ -102,10 +77,7 @@ public class LetterButton extends JButton{
 		xPos = x;
 	}
 	
-	/**
-	 * Accessor of the yPos variable
-	 * @return yPos - the y position of the button
-	 */
+	
 	public int getYPos(){
 		return yPos;
 	}
@@ -118,24 +90,16 @@ public class LetterButton extends JButton{
 		yPos = y;
 	}
 
-	/**
-	 * Accessor for the found word variable
-	 * @return foundWord variable
-	 */
+	
 	public boolean isFoundWord() {
 		return foundWord;
 	}
 
-	/**
-	 * Modifier for the found word variable
-	 * If the new value is true, change the button colour into cyan
-	 * @param foundWord - the new value of the foundWord variable
-	 */
+	
 	public void setFoundWord(boolean foundWord) {
 		this.foundWord = foundWord;
 		if(foundWord)
-			setBackground(Color.CYAN);
+			setBackground(Color.GREEN);
 	}
 
 }
-/************************************************************************/

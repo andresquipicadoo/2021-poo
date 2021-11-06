@@ -5,27 +5,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-/******************
- * WordGenerator class
- * 
- * Reads in a text file and stores it as a dictionary
- * Randomly generates words from the dictionary without repetition
- * 
- * @author Tech-Ranch
- *
- *******************/
+// Andres Quiros Picado
 
 public class WordGenerator {
 	
-	private ArrayList<Integer> generatedNum = new ArrayList<Integer>(); //Arraylist which stores the generated number
-	private Random generator = new Random();	//Random generator
-	private ArrayList<String> dict = new ArrayList<String>();	//Dictionary of words
+	private ArrayList<Integer> generatedNum = new ArrayList<Integer>(); 
+	private Random generator = new Random();	
+	private ArrayList<String> palabra = new ArrayList<String>();	
 	 
 	//Constructor
 	public WordGenerator(){
 		try{
 			  // Open the file that is the first 
-			  FileInputStream fstream = new FileInputStream("dict.txt");
+			  FileInputStream fstream = new FileInputStream("palabras.txt");
 			  // Get the object of DataInputStream
 			  DataInputStream in = new DataInputStream(fstream);
 			  BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -33,7 +25,7 @@ public class WordGenerator {
 
 			  //Add the words in the text file into the dictionary
 			  while ((strLine = br.readLine()) != null)   {
-				  dict.add(strLine);
+				  palabra.add(strLine);
 			  }
 			  
 			  //Close the input stream
@@ -44,27 +36,23 @@ public class WordGenerator {
 		
 	}
 	
-	/**
-	 * Takes a randomly generated word that have not be generated yet from the dictionary
-	 * @return a randomly generated word from the dictionary
-	 * 			If all words in the dictionary was already generated, then an empty string is returned
-	 */
+	
 	public String generateWord(){
 		Integer n;
 		
 		while(true){
 			
 			//check if all possible numbers were generated
-			if(generatedNum.size() == dict.size())
+			if(generatedNum.size() == palabra.size())
 				return "";
 			
-			n = Math.abs(generator.nextInt()%dict.size());
+			n = Math.abs(generator.nextInt()%palabra.size());
 			if(!generatedNum.contains(n)){
 				generatedNum.add(n);
 				break;
 			}
 		}
-		return dict.get(n).toUpperCase();
+		return palabra.get(n).toUpperCase();
 	}
 		
 }

@@ -2,20 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-/******************
- * WordsearchGenerator class
- * 
- * Uses the WordGenerator class to generate random words
- * Arrange the words randomly in a wordsearch board which is represented by a 2D String array
- * 
- * @author Tech-Ranch
- *
- ******************/
+
 
 public class WordsearchGenerator {
 
-	private int numOfWords;	//Number of words in the wordsearch
-	private String board[][]; //[row] [col]
+	private int numOfWords;	
+	private String board[][]; 
 	private WordGenerator generator;
 	private ArrayList<String> listOfWords = new ArrayList<String>();
 	private int length;
@@ -26,9 +18,7 @@ public class WordsearchGenerator {
 		this.length = length;
 	}
 
-	/**
-	 * Sets up the wordsearch grid by generating random words and inserting them into the 2D board array
-	 */
+	
 	public void setUp(){
 		int numGenerated = 0;
 		
@@ -143,34 +133,22 @@ public class WordsearchGenerator {
 	}
 	
 
-	/**
-	 * Accessor for the number of words
-	 * @return numOfWords
-	 */
+	
 	public int getNumOfWords() {
 		return numOfWords;
 	}
 
-	/**
-	 * Set the variable numOfWords to the given param
-	 * @param numOfWords - the number of words
-	 */
+	
 	public void setNumOfWords(int numOfWords) {
 		this.numOfWords = numOfWords;
 	}
 
-	/**
-	 * Accessor for the wordsearch board variable
-	 * @return board - the 2D String array that represent the wordsearch board
-	 */
+	
 	public String[][] getBoard() {
 		return board;
 	}
 
-	/**
-	 * Accessor the the list of words that were generated
-	 * @return listOfWords - the list of words
-	 */
+	
 	public ArrayList<String> getListOfWords() {
 		return listOfWords;
 	}

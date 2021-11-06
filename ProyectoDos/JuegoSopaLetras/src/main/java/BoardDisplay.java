@@ -7,20 +7,10 @@ import java.util.Random;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-/******************
- * BoardDisplay class
- * 
- * Creates the GUI framework of the Wordsearch
- * 
- * 
- * @inherits JButton
- * @author Tech-Ranch
- *
- ******************/
 
 public class BoardDisplay implements ActionListener {
 
-	private JFrame frame; //the frame of the window
+	private JFrame frame; 
 	private ArrayList<LetterButton> btnArr = new ArrayList<LetterButton>(); //the array of buttons in the wordsearch
 	private JLabel[] labels; //array of labels
 	private int length; //length of the wordsearch
@@ -34,32 +24,23 @@ public class BoardDisplay implements ActionListener {
 	private String word = "";	//the word the user formed so far by clicking the buttons
 	private int numOfWords;
 	
-	/**
-	 * Constructor of the class
-	 * @param length = the length of the wordsearch
-	 * @param numOfWords - the number of words to be found in the wordsearch
-	 */
+	
 	public BoardDisplay(int length, int numOfWords){
 		this.length = length;
 		this.numOfWords = numOfWords;
-		ImageIcon img = new ImageIcon("C://Anjali/Anjali/eclipse/Eclipse Workspace/WordSearch/logo_tr.png");
-		frame = new JFrame("Word Search by Tech-Ranch !");
+		ImageIcon img = new ImageIcon("C://Andres/Quiros/Netbeans/ Workspace/WordSearch/logo_tr.png");
+		frame = new JFrame("Juego de Sopa de Letras !");
 		frame.setResizable(false);
 		frame.setIconImage(img.getImage());
 		labels = new JLabel[numOfWords];
 	}
 	
-	/**
-	 * Create a wordsearch and create the grid of buttons
-	 * Create a label for each word in the wordsearch 
-	 */
+	
 	public void buildGrid(){
 		//frame.setTitle("How to play ? ");
-		JOptionPane.showMessageDialog(frame, "Welcome to Tech-Ranch's Word Search Game!\n To play, find all the words listed " +
-				"on the bottom.\n Select the words on the grid by clicking on the tiles.\n Good luck!", "How to play?",1);
 		
 		//generate the wordsearch
-		WordsearchGenerator ws = new WordsearchGenerator(8, 15);
+		WordsearchGenerator ws = new WordsearchGenerator(4, 15);
 		ws.setUp();
 		String board [][] = ws.getBoard();
 		wordList = ws.getListOfWords();
@@ -68,12 +49,12 @@ public class BoardDisplay implements ActionListener {
 		frame.setVisible(true);
 		
 		
-		//Create the main content which displays the buttons of the wordsearch
+		
 		JPanel content = new JPanel();
 		content.setLayout(new GridLayout(length, length));
 		
-		//create an array of random letters that can be generated for the wordsearch
-		String[] randLetters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",  "N", "O", "P", "Q",
+		
+		String[] randLetters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",  "N",  "O", "P", "Q",
 				 "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 		Random r = new Random();
 		for(int i = 0; i < length; i++){
@@ -90,7 +71,7 @@ public class BoardDisplay implements ActionListener {
 			}		
 		}
 		
-		//Create the bottom panel which displays the label of each word
+
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new GridLayout(5,2, 30, 10));
 		for(int i = 0; i < numOfWords; i++){
@@ -111,10 +92,7 @@ public class BoardDisplay implements ActionListener {
 		
 	}
 
-	/**
-	 * Checks if the player have found a word in the wordsearch
-	 * If the player find all the words, the player will have the option to Play Again or Quit
-	 */
+	
 	public void checkMatch(){
 		
 		if(wordsToFind.contains(word)){
@@ -132,12 +110,12 @@ public class BoardDisplay implements ActionListener {
 			word = "";
 		}
 		
-		//Check if all the words were found
+		
 		if(wordsToFind.size() == 0){
 			
 			//Give the player an option to play again or quit the program
-			Object[] options = {"Play Again", "Quit"};
-			int n = JOptionPane.showOptionDialog(frame, "You Win!", "Congratulations", JOptionPane.YES_NO_OPTION,
+			Object[] options = {"Jugar nuevamente", "Salir"};
+			int n = JOptionPane.showOptionDialog(frame, "Ganaste", "Felicidades", JOptionPane.YES_NO_OPTION,
 					JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
 			if(n == 0){
 				frame.getContentPane().removeAll();
@@ -219,17 +197,14 @@ public class BoardDisplay implements ActionListener {
 					
 				}
 			}
-			btn.toggle(); //toggle the button to be selected or not
-			checkMatch(); //check if a word was found
-		}//end if statement for checking if the source is a LetterButton
+			btn.toggle(); 
+			checkMatch(); 
+		}
 	}
 	
 	
 	
-	/**
-	 * Reset the selected buttons so that they are unselected
-	 * Clear the word that was currently formed
-	 */
+	
 	public void clearSelectedBtns(){
 		for(LetterButton b:selectedBtns){
 			b.setSelected(false);
