@@ -10,15 +10,14 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.plaf.OptionPaneUI;
 
 /**
  *
  * @author Dark
  */
-public class PlayGame extends javax.swing.JFrame {
+public class JuegoMemoria extends javax.swing.JFrame {
 
-    private VFondo fondo;
+    private FondoJuego fondo;
     private LogicaJuego log = new LogicaJuego();
     private boolean caraUp = false;
     private ImageIcon im1;
@@ -27,10 +26,10 @@ public class PlayGame extends javax.swing.JFrame {
     private boolean primerc = false;
     private int puntaje = 0;
 
-    public PlayGame() {
+    public JuegoMemoria() {
         initComponents();
         
-        fondo = new VFondo(getWidth(), getHeight());
+        fondo = new FondoJuego(getWidth(), getHeight());
         add(fondo, BorderLayout.CENTER);
         setCards();
         
@@ -769,20 +768,20 @@ public class PlayGame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlayGame().setVisible(true);
+                new JuegoMemoria().setVisible(true);
             }
         });
     }
