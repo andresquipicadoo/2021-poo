@@ -21,6 +21,7 @@ public class gato extends javax.swing.JFrame {
     
     //numero de jugador 1 o 2
     int numeroJugador = 0;
+    
 
     /**
      * Creates new form gat
@@ -274,12 +275,15 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn1.setForeground(Color.RED);
+           btn1.setForeground(Color.BLACK);
         }
         else
         {
-            btn1.setForeground(Color.GREEN);
+            btn1.setForeground(Color.BLUE);
         }
+       
+        
+      
         
         choose_a_Player();
         winningGame();
@@ -291,11 +295,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn2.setForeground(Color.RED);
+           btn2.setForeground(Color.BLACK);
         }
-        else
+        else if(startGame.equalsIgnoreCase("X"))
         {
-            btn2.setForeground(Color.GREEN);
+            btn2.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -308,11 +312,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn3.setForeground(Color.RED);
+           btn3.setForeground(Color.BLACK);
         }
         else
         {
-           btn3.setForeground(Color.GREEN);
+           btn3.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -325,11 +329,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-          btn4.setForeground(Color.RED);
+          btn4.setForeground(Color.BLACK);
         }
         else
         {
-           btn4.setForeground(Color.GREEN);
+           btn4.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -342,11 +346,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-          btn5.setForeground(Color.RED);
+          btn5.setForeground(Color.BLACK);
         }
         else
         {
-            btn5.setForeground(Color.GREEN);
+            btn5.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -359,11 +363,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn6.setForeground(Color.RED);
+           btn6.setForeground(Color.BLACK);
         }
         else
         {
-            btn6.setForeground(Color.GREEN);
+            btn6.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -376,11 +380,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-          btn7.setForeground(Color.RED);
+          btn7.setForeground(Color.BLACK);
         }
         else
         {
-            btn7.setForeground(Color.GREEN);
+            btn7.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -393,11 +397,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn8.setForeground(Color.RED);
+           btn8.setForeground(Color.BLACK);
         }
         else
         {
-            btn8.setForeground(Color.GREEN);
+            btn8.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -410,11 +414,11 @@ public class gato extends javax.swing.JFrame {
         
         if(startGame.equalsIgnoreCase("X"))
         {
-           btn9.setForeground(Color.RED);
+           btn9.setForeground(Color.BLACK);
         }
         else
         {
-            btn9.setForeground(Color.GREEN);
+            btn9.setForeground(Color.BLUE);
         }
         
         choose_a_Player();
@@ -654,9 +658,27 @@ public class gato extends javax.swing.JFrame {
             btn5.setBackground(Color.red);
             btn7.setBackground(Color.red);           
         }
+        if (bt1==("x")&&bt2==("O")&& bt3 ==("X") && bt4 == ("O") &&bt5==("O") &&bt6==("X")&&bt7==("X")&&bt8==("X")&&bt7==("O")){
+             JOptionPane.showMessageDialog(this, "Empate", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            btn1.setBackground(Color.red);
+            btn2.setBackground(Color.red);
+            btn3.setBackground(Color.red);   
+            btn4.setBackground(Color.red);
+            btn5.setBackground(Color.red);
+            btn6.setBackground(Color.red); 
+            btn7.setBackground(Color.red);
+            btn8.setBackground(Color.red);
+            btn9.setBackground(Color.red);         
+             
+            gameScore();
+             
+        }
+        System.exit(WIDTH);
         
         
     }
+    
+   
     
     
     

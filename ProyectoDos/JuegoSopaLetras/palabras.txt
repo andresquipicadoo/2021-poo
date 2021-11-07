@@ -3,7 +3,7 @@ Argelia
 Tunez 
 Japon 
 Bangladesh
-Turkmenistan
+Eritrea
 Afganistan
 Pakistan
 Turquia
@@ -32,14 +32,14 @@ Angola
 Belice
 Panama 
 Nicaragua
-TrinidadyTobago
+Niger
 Barbados
 Surinam
 Chipre
 Honduras
-El Salvador
-Costa de Marfil
-Costa Rica
+ElSalvador
+Nambia
+CostaRica
 Ucrania
 Polonia
 Irlanda
@@ -62,25 +62,25 @@ Holanda
 Guatemala
 Mexico
 Canada
-EstadosUnidos
+Comoras
 Irack
 Siria
 Kenia
 Etiopia
 Sudáfrica
 Ecuador
-NuevaZelanda
+CaboVerde
 Nigeria
 Monaco
 Senegal
-Cuba
+Cubas
 Spain
 Bosnia
 Laos
-CoreadelNorte
-CoreadelSur
+Mauricio
+Chad
 Catar
-ArabiaSaudita
+Lesoto
 Singapur
 Tailandia
 Peru
@@ -89,18 +89,24 @@ Zambia
 Zimbabue
 Yemen
 Tonga
-SantaLucia
+Botsuana
 Guayana
-GuyanaFrancesa
+Benin
 SriLanka
 Tuvalu
 Madagascar
 Indonesia
 Libano 
 Liberia
-
-
-
+Azerbaiyan
+Letonia
+Dominica
+Vanatu
+Nauru
+Antartida
+Europa
+America
+Africa
 
 
 

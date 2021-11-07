@@ -248,7 +248,7 @@ public class BoardDisplay implements ActionListener {
                     timer.stop();
                     //lanzar mensaje de que el tiempo se acabo
                     // Y salir del programa
-                    JOptionPane.showMessageDialog(null, "Se acabo el tiempo");  
+                    JOptionPane.showMessageDialog(null, "Lastima :( Se acabo el tiempo");  
                     System.exit(minutos);
                 }
             }
