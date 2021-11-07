@@ -11,7 +11,7 @@ public class WordGenerator {
 	
 	private ArrayList<Integer> generatedNum = new ArrayList<Integer>(); 
 	private Random generator = new Random();	
-	private ArrayList<String> palabra = new ArrayList<String>();	
+	private ArrayList<String> dict = new ArrayList<String>();	
 	 
 	//Constructor
 	public WordGenerator(){
@@ -25,7 +25,7 @@ public class WordGenerator {
 
 			  //Add the words in the text file into the dictionary
 			  while ((strLine = br.readLine()) != null)   {
-				  palabra.add(strLine);
+				  dict.add(strLine);
 			  }
 			  
 			  //Close the input stream
@@ -43,16 +43,16 @@ public class WordGenerator {
 		while(true){
 			
 			//check if all possible numbers were generated
-			if(generatedNum.size() == palabra.size())
+			if(generatedNum.size() == dict.size())
 				return "";
 			
-			n = Math.abs(generator.nextInt()%palabra.size());
+			n = Math.abs(generator.nextInt()%dict.size());
 			if(!generatedNum.contains(n)){
 				generatedNum.add(n);
 				break;
 			}
 		}
-		return palabra.get(n).toUpperCase();
+		return dict.get(n).toUpperCase();
 	}
 		
 }
