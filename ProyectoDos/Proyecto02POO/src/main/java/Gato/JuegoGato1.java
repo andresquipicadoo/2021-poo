@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
  *
  * @author aquir
  */
-public class gato extends javax.swing.JFrame {
-    private String startGame = "X";
-    private int xCount = 0;
-    private int oCount = 0;
+public class JuegoGato1 extends javax.swing.JFrame {
+    private String IniciarJuegoGato = "X";
+    private int contadorX = 0;
+    private int contadorO = 0;
     int turnoJugador=1;
     
     //numero de jugador 1 o 2
@@ -26,24 +26,24 @@ public class gato extends javax.swing.JFrame {
     /**
      * Creates new form gat
      */
-    public gato() {
+    public JuegoGato1() {
         initComponents();
     }
-    private void gameScore()
+    private void Puntaje()
     {
-        jugadorX.setText(String.valueOf(xCount));
-       jugadorO.setText(String.valueOf(oCount));
+        jugadorX.setText(String.valueOf(contadorX));
+       jugadorO.setText(String.valueOf(contadorO));
     }
     
-    private void choose_a_Player()
+    private void seleccionarJugador()
     {
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
-            startGame = "O";
+            IniciarJuegoGato = "O";
         }
         else
         {
-            startGame = "X";
+            IniciarJuegoGato = "X";
         }
     }
     
@@ -81,7 +81,7 @@ public class gato extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("Tic Tac Toe");
+        jLabel1.setText("Gato");
 
         btn1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -271,9 +271,9 @@ public class gato extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-         btn1.setText(startGame);
+         btn1.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn1.setForeground(Color.BLACK);
         }
@@ -285,32 +285,32 @@ public class gato extends javax.swing.JFrame {
         
       
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-         btn2.setText(startGame);
+         btn2.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn2.setForeground(Color.BLACK);
         }
-        else if(startGame.equalsIgnoreCase("X"))
+        else if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
             btn2.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-         btn3.setText(startGame);
+         btn3.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn3.setForeground(Color.BLACK);
         }
@@ -319,15 +319,15 @@ public class gato extends javax.swing.JFrame {
            btn3.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-        btn4.setText(startGame);
+        btn4.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
           btn4.setForeground(Color.BLACK);
         }
@@ -336,15 +336,15 @@ public class gato extends javax.swing.JFrame {
            btn4.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-       btn5.setText(startGame);
+       btn5.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
           btn5.setForeground(Color.BLACK);
         }
@@ -353,15 +353,15 @@ public class gato extends javax.swing.JFrame {
             btn5.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        btn6.setText(startGame);
+        btn6.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn6.setForeground(Color.BLACK);
         }
@@ -370,15 +370,15 @@ public class gato extends javax.swing.JFrame {
             btn6.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
-        btn7.setText(startGame);
+        btn7.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
           btn7.setForeground(Color.BLACK);
         }
@@ -387,15 +387,15 @@ public class gato extends javax.swing.JFrame {
             btn7.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-        btn8.setText(startGame);
+        btn8.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn8.setForeground(Color.BLACK);
         }
@@ -404,15 +404,15 @@ public class gato extends javax.swing.JFrame {
             btn8.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
-        btn9.setText(startGame);
+        btn9.setText(IniciarJuegoGato);
         
-        if(startGame.equalsIgnoreCase("X"))
+        if(IniciarJuegoGato.equalsIgnoreCase("X"))
         {
            btn9.setForeground(Color.BLACK);
         }
@@ -421,8 +421,8 @@ public class gato extends javax.swing.JFrame {
             btn9.setForeground(Color.BLUE);
         }
         
-        choose_a_Player();
-        winningGame();
+        seleccionarJugador();
+        GanadorJuego();
     }//GEN-LAST:event_btn9ActionPerformed
      
     /**
@@ -442,24 +442,25 @@ public class gato extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoGato1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoGato1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoGato1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoGato1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gato().setVisible(true);
+                new JuegoGato1().setVisible(true);
             }
         });
     }
-     private void winningGame()
+     private void GanadorJuego()
     {
         String bt1 = btn1.getText();
         String bt2 = btn2.getText();
@@ -479,8 +480,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("X") && bt2 ==("X") && bt3 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn1.setBackground(Color.red);
             btn2.setBackground(Color.red);
@@ -491,8 +492,8 @@ public class gato extends javax.swing.JFrame {
         if((bt4 == null ? ("X") == null : bt4.equals("X")) && bt5 ==("X") && bt6 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn4.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -502,8 +503,8 @@ public class gato extends javax.swing.JFrame {
         if(bt7 == ("X") && bt8 ==("X") && bt9 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn7.setBackground(Color.red);
             btn8.setBackground(Color.red);
@@ -513,8 +514,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("X") && bt4 ==("X") && bt7 == ("X"))
         {
             JOptionPane.showMessageDialog(this, " Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn1.setBackground(Color.red);
             btn4.setBackground(Color.red);
@@ -524,8 +525,8 @@ public class gato extends javax.swing.JFrame {
         if(bt2 == ("X") && bt5 ==("X") && bt8 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "Felicades jugador X ganador", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn2.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -534,8 +535,8 @@ public class gato extends javax.swing.JFrame {
         if(bt3 == ("X") && bt6 ==("X") && bt9 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn3.setBackground(Color.red);
             btn6.setBackground(Color.red);
@@ -546,8 +547,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("X") && bt5 ==("X") && bt9 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn1.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -557,8 +558,8 @@ public class gato extends javax.swing.JFrame {
         if(bt3 == ("X") && bt5 ==("X") && bt7 == ("X"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            xCount++;
-            gameScore();
+            contadorX++;
+            Puntaje();
             
             btn3.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -573,8 +574,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("O") && bt2 ==("O") && bt3 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador o gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn1.setBackground(Color.DARK_GRAY);
             btn2.setBackground(Color.DARK_GRAY);
@@ -585,8 +586,8 @@ public class gato extends javax.swing.JFrame {
         if(bt4 == ("O") && bt5 ==("O") && bt6 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn4.setBackground(Color.DARK_GRAY);
             btn5.setBackground(Color.red);
@@ -596,8 +597,8 @@ public class gato extends javax.swing.JFrame {
         if(bt7 == ("O") && bt8 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn7.setBackground(Color.YELLOW);
             btn8.setBackground(Color.YELLOW);
@@ -607,8 +608,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("O") && bt4 ==("O") && bt7 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn1.setBackground(Color.red);
             btn4.setBackground(Color.red);
@@ -618,8 +619,8 @@ public class gato extends javax.swing.JFrame {
         if(bt2 == ("O") && bt5 ==("O") && bt8 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn2.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -628,8 +629,8 @@ public class gato extends javax.swing.JFrame {
         if(bt3 == ("O") && bt6 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn3.setBackground(Color.red);
             btn6.setBackground(Color.red);
@@ -640,8 +641,8 @@ public class gato extends javax.swing.JFrame {
         if(bt1 == ("O") && bt5 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn1.setBackground(Color.BLUE);
             btn5.setBackground(Color.BLUE);
@@ -651,8 +652,8 @@ public class gato extends javax.swing.JFrame {
         if(bt3 == ("O") && bt5 ==("O") && bt7 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-            oCount++;
-            gameScore();
+            contadorO++;
+            Puntaje();
             
             btn3.setBackground(Color.red);
             btn5.setBackground(Color.red);
@@ -670,10 +671,10 @@ public class gato extends javax.swing.JFrame {
             btn8.setBackground(Color.red);
             btn9.setBackground(Color.red);         
              
-            gameScore();
+            Puntaje();
              
         }
-        System.exit(WIDTH);
+       
         
         
     }

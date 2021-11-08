@@ -2,32 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package BroMemoryPrincipal;
 
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Dark
- */
-public class VFondo extends javax.swing.JPanel {
 
-    /**
-     * Creates new form VFondo
-     */
-    public VFondo(int w, int h) {
+public class FondoMario extends javax.swing.JPanel {
+
+    
+    public FondoMario(int ancho, int altura) {
         initComponents();
         
-        setSize(w, h);
+        setSize(ancho, altura);
     }
     
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        /* reemplazar el uso de "../imagenes/..." por "/imagenes/..." */
+        
         Image im = new ImageIcon(getClass().getResource("/imagenes/fondo.JPG")).getImage();
         g.drawImage(im, 0, 0, getWidth(), getHeight(), null);
         setOpaque(false);

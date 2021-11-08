@@ -4,8 +4,8 @@ import java.util.Random;
 public class Main {
 	
     public static void main(String args[]){
-        Random size=new Random() ;
-        int num =size.nextInt(3);
+        Random dimensiones=new Random() ;
+        int num =dimensiones.nextInt(3);
       
         int tamano = 0 ;
        
@@ -19,8 +19,8 @@ public class Main {
         else if (num==2){
             tamano=20;
         }
-        BoardDisplay game = new BoardDisplay(tamano, 4);
-	game.buildGrid();
+        SopaLetras sopaLetras = new SopaLetras(tamano, 4);
+	sopaLetras.GenerarCuadricula();
         
        
        
