@@ -2,42 +2,39 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package BroMemoryPrincipal;
 
-import auxiliar.LogicaJuego;
+import logicaBroMemory.CantidadCartas;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.OptionPaneUI;
 
-/**
- *
- * @author Dark
- */
-public class PlayGame extends javax.swing.JFrame {
 
-    private VFondo fondo;
-    private LogicaJuego log = new LogicaJuego();
-    private boolean caraUp = false;
-    private ImageIcon im1;
-    private ImageIcon im2;
+public class JuegoMemoria extends javax.swing.JFrame {
+
+    private FondoMario fondo;
+    private CantidadCartas log = new CantidadCartas();
+    private boolean CaraSuperior = false;
+    private ImageIcon imagen1;
+    private ImageIcon imagen2;
     private JButton[] pbtn = new JButton[2];
     private boolean primerc = false;
     private int puntaje = 0;
 
-    public PlayGame() {
+    public JuegoMemoria() {
         initComponents();
         
-        fondo = new VFondo(getWidth(), getHeight());
+        fondo = new FondoMario(getWidth(), getHeight());
         add(fondo, BorderLayout.CENTER);
-        setCards();
+        Cartas();
         
         
     }
 
-    private void setCards() {
-        int[] numbers = log.getCardNumbers();
+    private void Cartas() {
+        int[] numbers = log.NumeroCartas();
         
         /* reemplazar el uso de "../imagenes/..." por "/imagenes/..." */
         btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[0] + ".png")));
@@ -60,35 +57,35 @@ public class PlayGame extends javax.swing.JFrame {
         btnC18.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[17] + ".png")));
     }
 
-    private void btnEnabled(JButton btn) {
+    private void botonActivado(JButton btn) {
 
-        if (!caraUp) {
+        if (!CaraSuperior) {
             btn.setEnabled(false);
-            im1 = (ImageIcon) btn.getDisabledIcon();
+            imagen1 = (ImageIcon) btn.getDisabledIcon();
             pbtn[0] = btn;
-            caraUp = true;
+            CaraSuperior = true;
             primerc = false;
         } else {
             btn.setEnabled(false);
-            im2 = (ImageIcon) btn.getDisabledIcon();
+            imagen2 = (ImageIcon) btn.getDisabledIcon();
             pbtn[1] = btn;
             primerc = true;
             puntaje += 20;
-            pregwin();
+            Ganador();
         }
     }
 
-    private void compare() {
-        if (caraUp && primerc) {
+    private void CompararCartas() {
+        if (CaraSuperior && primerc) {
 
-            if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
+            if (imagen1.getDescription().compareTo(imagen2.getDescription()) != 0) {
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
                 if (puntaje > 10) {
                     puntaje -= 10;
                 }
             }
-            caraUp = false;
+            CaraSuperior = false;
         }
     }
 
@@ -114,15 +111,15 @@ public class PlayGame extends javax.swing.JFrame {
         btnC18.setEnabled(true);
 
         primerc = false;
-        caraUp = false;
+        CaraSuperior = false;
         puntaje = 0;
     }
 
-    private void pregwin() {
+    private void Ganador() {
         if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
                 && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled() &&!btnC17.isEnabled() && !btnC18.isEnabled()) {
-            JOptionPane.showMessageDialog(this, "Felicidades, usted ha ganado. Su puntaje es: " + puntaje, "Win!!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Felicidades, usted ha ganado. Su puntaje es: " + puntaje, "Ganador!!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -587,147 +584,147 @@ public class PlayGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
-        btnEnabled(btnC1);
+        botonActivado(btnC1);
     }//GEN-LAST:event_btnC1ActionPerformed
 
     private void btnC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC2ActionPerformed
-        btnEnabled(btnC2);
+        botonActivado(btnC2);
     }//GEN-LAST:event_btnC2ActionPerformed
 
     private void btnC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC3ActionPerformed
-        btnEnabled(btnC3);
+        botonActivado(btnC3);
     }//GEN-LAST:event_btnC3ActionPerformed
 
     private void btnC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC4ActionPerformed
-        btnEnabled(btnC4);
+        botonActivado(btnC4);
     }//GEN-LAST:event_btnC4ActionPerformed
 
     private void btnC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC5ActionPerformed
-        btnEnabled(btnC5);
+        botonActivado(btnC5);
     }//GEN-LAST:event_btnC5ActionPerformed
 
     private void btnC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC6ActionPerformed
-        btnEnabled(btnC6);
+        botonActivado(btnC6);
     }//GEN-LAST:event_btnC6ActionPerformed
 
     private void btnC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC7ActionPerformed
-        btnEnabled(btnC7);
+        botonActivado(btnC7);
     }//GEN-LAST:event_btnC7ActionPerformed
 
     private void btnC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC8ActionPerformed
-        btnEnabled(btnC8);
+        botonActivado(btnC8);
     }//GEN-LAST:event_btnC8ActionPerformed
 
     private void btnC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC9ActionPerformed
-        btnEnabled(btnC9);
+        botonActivado(btnC9);
     }//GEN-LAST:event_btnC9ActionPerformed
 
     private void btnC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC10ActionPerformed
-        btnEnabled(btnC10);
+        botonActivado(btnC10);
     }//GEN-LAST:event_btnC10ActionPerformed
 
     private void btnC11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC11ActionPerformed
-        btnEnabled(btnC11);
+        botonActivado(btnC11);
     }//GEN-LAST:event_btnC11ActionPerformed
 
     private void btnC12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC12ActionPerformed
-        btnEnabled(btnC12);
+        botonActivado(btnC12);
     }//GEN-LAST:event_btnC12ActionPerformed
 
     private void btnC13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC13ActionPerformed
-        btnEnabled(btnC13);
+        botonActivado(btnC13);
     }//GEN-LAST:event_btnC13ActionPerformed
 
     private void btnC14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC14ActionPerformed
-        btnEnabled(btnC14);
+        botonActivado(btnC14);
     }//GEN-LAST:event_btnC14ActionPerformed
 
     private void btnC15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC15ActionPerformed
-        btnEnabled(btnC15);
+        botonActivado(btnC15);
     }//GEN-LAST:event_btnC15ActionPerformed
 
     private void btnC16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC16ActionPerformed
-        btnEnabled(btnC16);
+        botonActivado(btnC16);
     }//GEN-LAST:event_btnC16ActionPerformed
 
     private void btnC1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC1MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC1MouseExited
 
     private void btnC2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC2MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC2MouseExited
 
     private void btnC3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC3MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC3MouseExited
 
     private void btnC4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC4MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC4MouseExited
 
     private void btnC5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC5MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC5MouseExited
 
     private void btnC6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC6MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC6MouseExited
 
     private void btnC7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC7MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC7MouseExited
 
     private void btnC8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC8MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC8MouseExited
 
     private void btnC9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC9MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC9MouseExited
 
     private void btnC10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC10MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC10MouseExited
 
     private void btnC11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC11MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC11MouseExited
 
     private void btnC12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC12MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC12MouseExited
 
     private void btnC13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC13MouseExited
         // TODO add your handling code here:        
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC13MouseExited
 
     private void btnC14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC14MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC14MouseExited
 
     private void btnC15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC15MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC15MouseExited
 
     private void btnC16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC16MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC16MouseExited
 
     private void btnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReiniciarActionPerformed
@@ -736,22 +733,22 @@ public class PlayGame extends javax.swing.JFrame {
 
     private void btnC17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC17MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC17MouseExited
 
     private void btnC17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC17ActionPerformed
         // TODO add your handling code here:
-         btnEnabled(btnC17);
+         botonActivado(btnC17);
     }//GEN-LAST:event_btnC17ActionPerformed
 
     private void btnC18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC18MouseExited
         // TODO add your handling code here:
-        compare();
+        CompararCartas();
     }//GEN-LAST:event_btnC18MouseExited
 
     private void btnC18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC18ActionPerformed
         // TODO add your handling code here:
-         btnEnabled(btnC18);
+         botonActivado(btnC18);
     }//GEN-LAST:event_btnC18ActionPerformed
 
     public static void main(String args[]) {
@@ -768,20 +765,21 @@ public class PlayGame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlayGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlayGame().setVisible(true);
+                new JuegoMemoria().setVisible(true);
             }
         });
     }

@@ -2,15 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package auxiliar;
+package logicaBroMemory;
 
 import java.util.Random;
 
-/**
- *
- * @author Dark
- */
-public class NewMain {
+
+public class Main {
 
     /**
      * @param args the command line arguments
