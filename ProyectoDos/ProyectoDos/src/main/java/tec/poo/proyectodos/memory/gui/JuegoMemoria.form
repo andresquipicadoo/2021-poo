@@ -173,7 +173,7 @@
         <Component class="javax.swing.JButton" name="btnC2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -184,7 +184,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -195,7 +195,7 @@
         <Component class="javax.swing.JButton" name="btnC3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -204,7 +204,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -215,7 +215,7 @@
         <Component class="javax.swing.JButton" name="btnC4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -224,7 +224,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -235,7 +235,7 @@
         <Component class="javax.swing.JButton" name="btnC8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -244,7 +244,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -255,7 +255,7 @@
         <Component class="javax.swing.JButton" name="btnC7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -264,7 +264,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -275,7 +275,7 @@
         <Component class="javax.swing.JButton" name="btnC6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -284,7 +284,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -295,7 +295,7 @@
         <Component class="javax.swing.JButton" name="btnC5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -304,7 +304,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -315,7 +315,7 @@
         <Component class="javax.swing.JButton" name="btnC12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -324,7 +324,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -335,7 +335,7 @@
         <Component class="javax.swing.JButton" name="btnC11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -344,7 +344,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -355,7 +355,7 @@
         <Component class="javax.swing.JButton" name="btnC10">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -364,7 +364,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -375,7 +375,7 @@
         <Component class="javax.swing.JButton" name="btnC9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -384,7 +384,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -395,7 +395,7 @@
         <Component class="javax.swing.JButton" name="btnC16">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -404,7 +404,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -415,7 +415,7 @@
         <Component class="javax.swing.JButton" name="btnC15">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -424,7 +424,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -435,7 +435,7 @@
         <Component class="javax.swing.JButton" name="btnC14">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -444,7 +444,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -455,7 +455,7 @@
         <Component class="javax.swing.JButton" name="btnC13">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -464,7 +464,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -475,7 +475,7 @@
         <Component class="javax.swing.JButton" name="btnC17">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -484,7 +484,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -495,7 +495,7 @@
         <Component class="javax.swing.JButton" name="btnC18">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -504,7 +504,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
@@ -515,7 +515,7 @@
         <Component class="javax.swing.JButton" name="btnC1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/c0.png"/>
+              <Image iconType="3" name="/memory/c0.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -524,7 +524,7 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/cr.png"/>
+              <Image iconType="3" name="/memory/cr.png"/>
             </Property>
           </Properties>
           <Events>
