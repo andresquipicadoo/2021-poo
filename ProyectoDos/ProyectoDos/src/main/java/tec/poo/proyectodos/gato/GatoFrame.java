@@ -19,7 +19,7 @@ public class GatoFrame extends javax.swing.JFrame {
     private String iniciaJuego = "X";
     private int contadorX = 0;
     private int contadorO = 0;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+   
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
@@ -618,5 +618,5 @@ public class GatoFrame extends javax.swing.JFrame {
 
 
     }
-    // End of variables declaration//GEN-END:variables
+    
 }

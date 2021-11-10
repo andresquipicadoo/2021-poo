@@ -6,10 +6,7 @@ package tec.poo.proyectodos.memory.auxiliar;
 
 import java.util.Random;
 
-/**
- *
- * @author Dark
- */
+
 public class LogicaJuego {
     
     public int[] getCardNumbers() {

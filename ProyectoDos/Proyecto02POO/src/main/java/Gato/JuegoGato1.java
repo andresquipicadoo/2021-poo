@@ -19,13 +19,11 @@ public class JuegoGato1 extends javax.swing.JFrame {
     private int contadorO = 0;
     int turnoJugador=1;
     
-    //numero de jugador 1 o 2
+   
     int numeroJugador = 0;
     
 
-    /**
-     * Creates new form gat
-     */
+    
     public JuegoGato1() {
         initComponents();
     }
@@ -74,14 +72,13 @@ public class JuegoGato1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jugadorX = new javax.swing.JLabel();
         jugadorO = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("Gato");
+        jLabel1.setText("Juego del Gato 01");
 
         btn1.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,29 +155,21 @@ public class JuegoGato1 extends javax.swing.JFrame {
 
         jugadorO.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        jLabel4.setText("VS");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jugadorO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jugadorO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,9 +184,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(jugadorO, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addGap(32, 32, 32)
+                        .addGap(102, 102, 102)
                         .addComponent(jLabel3)))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
@@ -207,44 +194,43 @@ public class JuegoGato1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel1)))
+                                .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -256,7 +242,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
                             .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(72, 72, 72)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -475,11 +461,11 @@ public class JuegoGato1 extends javax.swing.JFrame {
         String bt9 = btn9.getText();
         
         
-        // PLAYER X CODING
+      
         
         if(bt1 == ("X") && bt2 ==("X") && bt3 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -491,7 +477,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         
         if((bt4 == null ? ("X") == null : bt4.equals("X")) && bt5 ==("X") && bt6 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -502,7 +488,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
          
         if(bt7 == ("X") && bt8 ==("X") && bt9 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -513,7 +499,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         
         if(bt1 == ("X") && bt4 ==("X") && bt7 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, " Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, " Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -524,7 +510,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         
         if(bt2 == ("X") && bt5 ==("X") && bt8 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "Felicades jugador X ganador", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Felicades jugador X ganador", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -534,7 +520,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         }
         if(bt3 == ("X") && bt6 ==("X") && bt9 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -546,7 +532,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         
         if(bt1 == ("X") && bt5 ==("X") && bt9 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -555,9 +541,9 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn9.setBackground(Color.red);           
         }
         
-        if(bt3 == ("X") && bt5 ==("X") && bt7 == ("X"))
+        if(bt3.equals("X") && bt5 ==("X") && bt7 == ("X"))
         {
-            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
             
@@ -568,10 +554,10 @@ public class JuegoGato1 extends javax.swing.JFrame {
         
         
         
-        // PLAYER O CODING
         
         
-        if(bt1 == ("O") && bt2 ==("O") && bt3 == ("O"))
+        
+        if(bt1.equals("O") && bt2 ==("O") && bt3 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador o gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -583,7 +569,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             
         }
         
-        if(bt4 == ("O") && bt5 ==("O") && bt6 == ("O"))
+        if(bt4.equals("O") && bt5 ==("O") && bt6 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -594,7 +580,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn6.setBackground(Color.red);           
         }
          
-        if(bt7 == ("O") && bt8 ==("O") && bt9 == ("O"))
+        if(bt7.equals("O") && bt8 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -605,7 +591,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn9.setBackground(Color.YELLOW);           
         }
         
-        if(bt1 == ("O") && bt4 ==("O") && bt7 == ("O"))
+        if(bt1.equals("O") && bt4 ==("O") && bt7 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -616,7 +602,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn7.setBackground(Color.red);           
         }
         
-        if(bt2 == ("O") && bt5 ==("O") && bt8 == ("O"))
+        if(bt2.equals("O") && bt5 ==("O") && bt8 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -626,7 +612,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn5.setBackground(Color.red);
             btn8.setBackground(Color.red);           
         }
-        if(bt3 == ("O") && bt6 ==("O") && bt9 == ("O"))
+        if(bt3.equals("O") && bt6 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -638,7 +624,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
         }
         
         
-        if(bt1 == ("O") && bt5 ==("O") && bt9 == ("O"))
+        if(bt1.equals("O") && bt5 ==("O") && bt9 == ("O"))
         {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
@@ -659,7 +645,7 @@ public class JuegoGato1 extends javax.swing.JFrame {
             btn5.setBackground(Color.red);
             btn7.setBackground(Color.red);           
         }
-        if (bt1==("x")&&bt2==("O")&& bt3 ==("X") && bt4 == ("O") &&bt5==("O") &&bt6==("X")&&bt7==("X")&&bt8==("X")&&bt7==("O")){
+        if (bt1.equals("x")&&bt2.equals("O")&& bt3 ==("X") && bt4 == ("O") &&bt5==("O") &&bt6==("X")&&bt7==("X")&&bt8==("X")&&bt7==("O")){
              JOptionPane.showMessageDialog(this, "Empate", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             btn1.setBackground(Color.red);
             btn2.setBackground(Color.red);
@@ -699,7 +685,6 @@ public class JuegoGato1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jugadorO;
     private javax.swing.JLabel jugadorX;

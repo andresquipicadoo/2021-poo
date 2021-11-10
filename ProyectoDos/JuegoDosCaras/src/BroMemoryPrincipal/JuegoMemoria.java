@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BroMemoryPrincipal;
 
 import logicaBroMemory.CantidadCartas;
@@ -35,8 +32,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
 
     private void Cartas() {
         int[] numbers = log.NumeroCartas();
-        
-        /* reemplazar el uso de "../imagenes/..." por "/imagenes/..." */
+    
         btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[0] + ".png")));
         btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[1] + ".png")));
         btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("/imagenes/c" + numbers[2] + ".png")));
@@ -508,7 +504,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                         .addComponent(btnC4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnC17)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,12 +556,12 @@ public class JuegoMemoria extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addComponent(jLabel1)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

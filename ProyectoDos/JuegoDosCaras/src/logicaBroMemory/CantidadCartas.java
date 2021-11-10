@@ -11,7 +11,8 @@ public class CantidadCartas {
     
     public int[] NumeroCartas() {
         
-        int[] numeros = new int[18];
+        int[] numeros;
+        numeros = new int[18];
         int contador = 0;
         
         while(contador < 18) {

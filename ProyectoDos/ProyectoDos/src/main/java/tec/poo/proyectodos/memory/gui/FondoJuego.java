@@ -8,15 +8,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Dark
- */
+
 public class FondoJuego extends javax.swing.JPanel {
 
-    /**
-     * Creates new form VFondo
-     */
+   
     public FondoJuego(int w, int h) {
         initComponents();
         

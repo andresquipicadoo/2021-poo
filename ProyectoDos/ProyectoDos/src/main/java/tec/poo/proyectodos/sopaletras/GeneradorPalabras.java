@@ -9,14 +9,14 @@ import java.util.Random;
 
 // Andres Quiros Picado
 
-public class WordGenerator {
+public class GeneradorPalabras {
 
     private final ArrayList<Integer> generatedNum = new ArrayList<Integer>();
     private final Random generator = new Random();
     private final ArrayList<String> dict = new ArrayList<String>();
 
     //Constructor
-    public WordGenerator() {
+    public GeneradorPalabras() {
         try {
             // Open the file that is the first
 

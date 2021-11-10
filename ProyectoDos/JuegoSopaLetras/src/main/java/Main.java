@@ -19,8 +19,8 @@ public class Main {
         else if (num==2){
             tamano=20;
         }
-        SopaLetras sopaLetras = new SopaLetras(tamano, 4);
-	sopaLetras.GenerarCuadricula();
+        SopaLetras game = new SopaLetras(tamano, 4);
+	game.GenerarCuadricula();
         
        
        

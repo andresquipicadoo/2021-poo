@@ -7,15 +7,15 @@ import java.util.Random;
 
 public class WordsearchGenerator {
 
-    private int numOfWords;
+    private int numeroPalabras;
     private String[][] board;
-    private final WordGenerator generator;
+    private final GeneradorPalabras generator;
     private final ArrayList<String> listOfWords = new ArrayList<String>();
     private final int length;
 
     public WordsearchGenerator(int numOfWords, int length) {
-        generator = new WordGenerator();
-        this.numOfWords = numOfWords;
+        generator = new GeneradorPalabras();
+        this.numeroPalabras = numOfWords;
         this.length = length;
     }
 
@@ -28,7 +28,7 @@ public class WordsearchGenerator {
 
         Random rand = new Random();
 
-        while (numGenerated < numOfWords) {
+        while (numGenerated < numeroPalabras) {
 
             ArrayList<Integer> randRow = new ArrayList<Integer>();
             ArrayList<Integer> randCol = new ArrayList<Integer>();
@@ -132,12 +132,12 @@ public class WordsearchGenerator {
 
 
     public int getNumOfWords() {
-        return numOfWords;
+        return numeroPalabras;
     }
 
 
     public void setNumOfWords(int numOfWords) {
-        this.numOfWords = numOfWords;
+        this.numeroPalabras = numOfWords;
     }
 
 

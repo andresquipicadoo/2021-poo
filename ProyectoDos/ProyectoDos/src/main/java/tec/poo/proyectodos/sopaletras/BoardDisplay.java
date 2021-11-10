@@ -50,9 +50,7 @@ public class BoardDisplay implements ActionListener {
     }
 
     public void buildGrid() {
-        //frame.setTitle("How to play ? ");
-
-        //generate the wordsearch
+        
         WordsearchGenerator ws = new WordsearchGenerator(4, length);
         ws.setUp();
         String[][] board = ws.getBoard();
@@ -188,11 +186,11 @@ public class BoardDisplay implements ActionListener {
                             word = btn.getLetter();
                         }
                     } else {
-                        //if the button is beside the reference, on the left
+                       
                         if (btn.getYPos() == selectedBtns.get(0).getYPos() - 1 && btn.getXPos() == selectedBtns.get(0).getXPos()) {
                             selectedBtns.add(0, btn);
                             word = btn.getLetter() + word;
-                        }//if the button is beside the reference, on the right
+                        }
                         else if (btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos() + 1 && btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos()) {
                             word = word + btn.getLetter();
                             selectedBtns.add(btn);

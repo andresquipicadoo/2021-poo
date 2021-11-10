@@ -79,7 +79,8 @@ public class SopaLetras implements ActionListener {
                     btn = new Palabras(letrasRandom[n], i, j);
                 } else {
                     btn = new Palabras(board[i][j], i, j);
-                }
+                
+                        
                 contenido.add(btn);
                 btn.addActionListener(this);
                 btnArr.add(btn);
@@ -157,7 +158,7 @@ public class SopaLetras implements ActionListener {
                     return;
                 }
             } else {
-                if (botonSeleccionado.size() == 0) {
+                if (botonSeleccionado.isEmpty()) {
                     botonSeleccionado.add(btn);
                     palabra = btn.getLetra();
                 } else {
@@ -168,15 +169,29 @@ public class SopaLetras implements ActionListener {
                             orientacionVertical = false;
                         } 
                         else if (botonSeleccionado.get(0).getPosicionVertical() == btn.getPosicionVertical()) {
-                            orientacionVertical = true;
-                        } else {
+                           orientacionVertical = true;
+                             
+                        if(botonSeleccionado.get(0).getDiagonales()==btn.getDiagonales()){
+                           orientacionVertical = true;
+
+                       }
+                           
+                        } else { 
+                                        
+                        
+                        
+                                
+                        
                             BorrarBotones();
                             botonSeleccionado.add(btn);
                             palabra = btn.getLetra();
                             btn.toggle();
                             return;
                         }
+                    }    
+                    
                     }
+                
 
                     if (orientacionVertical) {
                     
@@ -206,8 +221,7 @@ public class SopaLetras implements ActionListener {
                             botonSeleccionado.add(btn);
                             palabra = btn.getLetra();
                         }
-                    }
-
+                    
                 }
             }
             btn.toggle();
@@ -216,9 +230,9 @@ public class SopaLetras implements ActionListener {
     }
 
     public void BorrarBotones() {
-        for (Palabras b : botonSeleccionado) {
+        botonSeleccionado.forEach(b -> {
             b.setSelected(false);
-        }
+        });
         botonSeleccionado.clear();
         palabra = "";
     }
