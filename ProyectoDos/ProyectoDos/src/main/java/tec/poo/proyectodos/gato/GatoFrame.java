@@ -6,8 +6,9 @@
 
 package tec.poo.proyectodos.gato;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  * @author aquir
@@ -16,6 +17,7 @@ public class GatoFrame extends javax.swing.JFrame {
     int turnoJugador = 1;
     //numero de jugador 1 o 2
     int numeroJugador = 0;
+   
     private String iniciaJuego = "X";
     private int contadorX = 0;
     private int contadorO = 0;
@@ -82,7 +84,7 @@ public class GatoFrame extends javax.swing.JFrame {
         jugadorX.setText(String.valueOf(contadorX));
         jugadorO.setText(String.valueOf(contadorO));
     }
-
+  
     private void escogerJugador() {
         if (iniciaJuego.equalsIgnoreCase("X")) {
             iniciaJuego = "O";

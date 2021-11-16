@@ -14,26 +14,21 @@ public class Palabras extends JButton{
 	private boolean selected; 
 	private int horizontales;
 	private int verticales; 
-        private int diagonales;
+      
 	private boolean buscar; 
 	
 	
 	
-	public Palabras(String letras, int hor, int vert,int diag){
+	public Palabras(String letras, int hor, int vert){
 		super(letras);
 		this.letras = letras;
 		horizontales = hor;
 		verticales = vert;
-                diagonales=diag;
-		setPreferredSize(new Dimension(30, 30));
+		setPreferredSize(new Dimension(40, 30));
 		setMargin(new Insets(0, 0, 0, 0));
 		setSelected(false);
 		
 	}
-
-    Palabras(String string, int i, int j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 	
 	
 	public void toggle(){
@@ -70,17 +65,11 @@ public class Palabras extends JButton{
 	public int getPosicionHorizontal(){
 		return horizontales;
 	}
-        public int getDiagonales(){
-            return diagonales;
-        }
 	
 	
 	public void setHorizontales(int x){
 		horizontales = x;
 	}
-        public void setDiagonales(int diag){
-            diagonales=diag;
-        }
 	
 	
 	public int getPosicionVertical(){

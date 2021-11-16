@@ -37,20 +37,15 @@ public class BuscadorDePalabras {
 
 			
 			boolean vertical;
-                        
 			int n = (rand.nextInt())%2;
 			if(n == 0)
 				vertical = true;
 			else
 				vertical = false;
                         
-                        boolean diagonal;
-                        int nu = (rand.nextInt())%2;
-			if(nu == 0)
-				diagonal = true;
-			else
-				diagonal = false;
-                       
+                
+			
+			
 			if(vertical){
 				
 				for(int i = 0; i<length; i++){
@@ -69,21 +64,21 @@ public class BuscadorDePalabras {
 						int r = randomFilas.get(i);
 						
 						
-						boolean haveRoom = true;
+						boolean espacio = true;
 						for(int k = 0; k < palabras.length(); k++){
 							if(SopaLetras[k+r][randmColumnas.get(j)]!=null){
 								
 								if(!SopaLetras[k+r][randmColumnas.get(j)].equals(palabras.substring(k, k+1))){
-									haveRoom = false;
+									espacio = false;
 									break;
 								}
 							}
 						}
 						
-						if(haveRoom){
+						if(espacio){
 							
 							for(int k = 0; k < palabras.length(); k++){
-								SopaLetras[f+c][randmColumnas.get(j)] = palabras.substring(k, k+1);
+								SopaLetras[k+r][randmColumnas.get(j)] = palabras.substring(k, k+1);
 							}
 							success = true;
 							break;
@@ -105,76 +100,35 @@ public class BuscadorDePalabras {
 				Collections.shuffle(randomFilas, new Random());
 				
 				for(int j = 0; j < randomFilas.size(); j++){
-					boolean success = false;
+					boolean exito = false;
 					for(int i = 0; i < randmColumnas.size(); i++){
 						int c = randmColumnas.get(i);
 						
 						
-						boolean haveRoom = true;
+						boolean espacio = true;
 						for(int k = 0; k < palabras.length(); k++){
 							if(SopaLetras[randomFilas.get(j)][k+c]!=null){
 						
 								if(!SopaLetras[randomFilas.get(j)][k+c].equals(palabras.substring(k, k+1))){
-									haveRoom = false;
+									espacio = false;
 									break;
 								}
 							}
 						}
 					
-						if(haveRoom){
+						if(espacio){
 						
 							for(int k = 0; k < palabras.length(); k++){
 								SopaLetras[randomFilas.get(j)][k+c] = palabras.substring(k, k+1);
 							}
-							success = true;
+							exito = true;
 			     				break;
                                                         			}
 					}
-					if(success)
+					if(exito)
 						break;
 				}
                         }
-                        if (diagonal){
-                            for(int i = 0; i<length; i++){
-					randmColumnas.add(i);
-				}
-				
-				for(int j = 0; j<(length-palabras.length()); j++){
-					randomFilas.add(j);
-				}
-                                Collections.shuffle(randmColumnas, new Random());
-				Collections.shuffle(randomFilas, new Random());
-                                for(int j = 0; j < randomFilas.size(); j++){
-					boolean success = false;
-					for(int i = 0; i < randmColumnas.size(); i++){
-						int c = randmColumnas.get(i);
-						
-						
-						boolean haveRoom = true;
-						for(int k = 0; k < palabras.length(); k++){
-							if(SopaLetras[randomFilas.get(j)][k+c]!=null){
-						
-								if(!SopaLetras[randomFilas.get(j)][k+c].equals(palabras.substring(k, k+1))){
-									haveRoom = false;
-									break;
-								}
-							}
-						}
-					
-						if(haveRoom){
-						
-							for(int k = 0; k < palabras.length(); k++){
-								SopaLetras[randomFilas.get(j)][k+c] = palabras.substring(k, k+1);
-							}
-							success = true;
-			     				break;
-                                                        			}
-					}
-					if(success)
-						break;
-				}
-                        
-                        } 
                 
                                 
 			numeroGenerado++;

@@ -74,6 +74,7 @@ public class BoardDisplay implements ActionListener {
                 } else {
                     btn = new LetterButton(board[i][j], i, j);
                 }
+                
                 content.add(btn);
                 btn.addActionListener(this);
                 btnArr.add(btn);
@@ -154,14 +155,17 @@ public class BoardDisplay implements ActionListener {
                     selectedBtns.add(btn);
                     word = btn.getLetter();
                 } else {
-                    //get orientation of button is only one button was already selected
+                   
                     if (selectedBtns.size() == 1) {
-                        //if the button is in the same row as the other selected button
+                    
                         if (selectedBtns.get(0).getXPos() == btn.getXPos()) {
                             letterVerticalOrientation = false;
-                        } //if the button is in the same column as the other selected button
+                        } 
                         else if (selectedBtns.get(0).getYPos() == btn.getYPos()) {
                             letterVerticalOrientation = true;
+                        }
+                        else if (selectedBtns.get(0).getdiagonal() == btn.getdiagonal()) {
+                            letterVerticalOrientation = true;    
                         } else {
                             clearSelectedBtns();
                             selectedBtns.add(btn);
@@ -172,11 +176,11 @@ public class BoardDisplay implements ActionListener {
                     }
 
                     if (letterVerticalOrientation) {
-                        //if the button is beside the reference, on the top
+                       
                         if (btn.getXPos() == selectedBtns.get(0).getXPos() - 1 && btn.getYPos() == selectedBtns.get(0).getYPos()) {
                             selectedBtns.add(0, btn);
                             word = btn.getLetter() + word;
-                        }//if the button is beside the reference, on the bottom
+                        }
                         else if (btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos() + 1 && btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos()) {
                             selectedBtns.add(btn);
                             word = word + btn.getLetter();
@@ -187,7 +191,7 @@ public class BoardDisplay implements ActionListener {
                         }
                     } else {
                        
-                        if (btn.getYPos() == selectedBtns.get(0).getYPos() - 1 && btn.getXPos() == selectedBtns.get(0).getXPos()) {
+                        if (btn.getdiagonal()== selectedBtns.get(0).getYPos() - 1 && btn.getXPos() == selectedBtns.get(0).getdiagonal()) {
                             selectedBtns.add(0, btn);
                             word = btn.getLetter() + word;
                         }
@@ -200,8 +204,7 @@ public class BoardDisplay implements ActionListener {
                             word = btn.getLetter();
                         }
                     }
-
-                }
+                }  
             }
             btn.toggle();
             checkMatch();
@@ -213,7 +216,7 @@ public class BoardDisplay implements ActionListener {
             b.setSelected(false);
         }
         selectedBtns.clear();
-        word = "";
+        word = "8";
     }
 
     public int getLength() {

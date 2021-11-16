@@ -9,6 +9,10 @@ package Cards;
  *
  * @author aquir
  */
+
+
+import javax.swing.ImageIcon;
+
 public class Cards extends javax.swing.JFrame {
 
     /**
@@ -70,11 +74,10 @@ public class Cards extends javax.swing.JFrame {
         jButton41 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 102, 255));
 
-        jButton1.setText("jButton1");
         jButton1.setPreferredSize(new java.awt.Dimension(300, 340));
 
-        jButton2.setText("jButton1");
         jButton2.setPreferredSize(new java.awt.Dimension(300, 340));
 
         jButton3.setText("jButton1");
@@ -83,13 +86,11 @@ public class Cards extends javax.swing.JFrame {
         jButton4.setText("jButton1");
         jButton4.setPreferredSize(new java.awt.Dimension(300, 340));
 
-        jButton5.setText("jButton1");
         jButton5.setPreferredSize(new java.awt.Dimension(300, 340));
 
         jButton6.setText("jButton1");
         jButton6.setPreferredSize(new java.awt.Dimension(300, 340));
 
-        jButton7.setText("jButton1");
         jButton7.setPreferredSize(new java.awt.Dimension(300, 340));
 
         jButton8.setText("jButton1");
@@ -103,7 +104,6 @@ public class Cards extends javax.swing.JFrame {
         jButton11.setText("jButton1");
         jButton11.setPreferredSize(new java.awt.Dimension(300, 340));
 
-        jButton12.setText("jButton1");
         jButton12.setPreferredSize(new java.awt.Dimension(300, 340));
 
         jButton13.setText("jButton1");
@@ -200,7 +200,6 @@ public class Cards extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -285,7 +284,10 @@ public class Cards extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -341,7 +343,7 @@ public class Cards extends javax.swing.JFrame {
                     .addComponent(jButton41, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton9)
-                .addContainerGap(1456, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();

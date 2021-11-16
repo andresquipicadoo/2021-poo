@@ -6,11 +6,12 @@ import java.awt.*;
 
 public class LetterButton extends JButton {
 
-    private String letter; //letter that is displayed on the button
-    private boolean selected; //
-    private int xPos; //the wordsearch row the button is on
-    private int yPos; //the wordsearch column the button is on
-    private boolean foundWord; //true if the button is part of a word and was "found" by user
+    private String letter; 
+    private boolean selected;
+    private int xPos;
+    private int yPos; 
+    private int diagonal;
+    private boolean foundWord; 
 
 
     //Constructor
@@ -24,11 +25,7 @@ public class LetterButton extends JButton {
         setSelected(false);
     }
 
-    /**
-     * Toggle the LetterButton to be selected or unselected
-     * If the button was unselected, it becomes selected
-     * If the button was selected, it becomes unselected
-     */
+   
     public void toggle() {
         setSelected(!selected);
     }
@@ -61,6 +58,10 @@ public class LetterButton extends JButton {
     public int getXPos() {
         return xPos;
     }
+    
+    public int getdiagonal(){
+        return diagonal;
+    }
 
     /**
      * Modifier of the xPos variable
@@ -84,7 +85,10 @@ public class LetterButton extends JButton {
     public void setYPos(int y) {
         yPos = y;
     }
-
+    
+    public void setdiagonal(int d) {
+        diagonal = d;
+    } 
 
     public boolean isFoundWord() {
         return foundWord;

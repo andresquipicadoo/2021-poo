@@ -7,36 +7,51 @@ package tec.poo.proyectodos.memory.gui;
 import tec.poo.proyectodos.memory.auxiliar.LogicaJuego;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 
+
 public class JuegoMemoria extends javax.swing.JFrame {
 
     private FondoJuego fondo;
+    
+   
     private LogicaJuego log = new LogicaJuego();
     private boolean caraUp = false;
     private ImageIcon im1;
+    private int cantidadJugadores = 2;
     private ImageIcon im2;
+    private int turno = 1;
+    private int cartasGanadasJ1=1; 
+    private int  cartasGanadasJ2=1;
     private JButton[] pbtn = new JButton[2];
     private boolean primerc = false;
-    private int puntaje = 0;
-
+  
     public JuegoMemoria() {
         initComponents();
         
         fondo = new FondoJuego(getWidth(), getHeight());
         add(fondo, BorderLayout.CENTER);
-        setCards();
-        
-        
+        setCards();        
     }
-
+    
+    public void setCantidadJugadores(int cantidad) {
+        if (cantidad > 2) {
+            cantidad = 2;
+        }
+        this.cantidadJugadores = cantidad;
+    }
+    
+    
     private void setCards() {
         int[] numbers = log.getCardNumbers();
         
-        /* reemplazar el uso de "../imagenes/..." por "/memory/..." */
+        
         btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[0] + ".png")));
         btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[1] + ".png")));
         btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[2] + ".png")));
@@ -56,12 +71,14 @@ public class JuegoMemoria extends javax.swing.JFrame {
         btnC17.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[16] + ".png")));
         btnC18.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[17] + ".png")));
     }
+    
 
     private void btnEnabled(JButton btn) {
 
         if (!caraUp) {
             btn.setEnabled(false);
             im1 = (ImageIcon) btn.getDisabledIcon();
+          
             pbtn[0] = btn;
             caraUp = true;
             primerc = false;
@@ -70,24 +87,79 @@ public class JuegoMemoria extends javax.swing.JFrame {
             im2 = (ImageIcon) btn.getDisabledIcon();
             pbtn[1] = btn;
             primerc = true;
-            puntaje += 20;
+           
             pregwin();
         }
     }
+   
 
     private void compare() {
+         
         if (caraUp && primerc) {
-
+            
             if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
+                // la segunda carta no es igual que la primera
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
-                if (puntaje > 10) {
-                    puntaje -= 10;
+             
+                // cambiar turno de jugador
+                if (turno == 1) {
+                    turno = 1;
                 }
+                else {
+                    turno = 1;
+                }
+            }
+            else {
+                 
+                if (turno==2){
+                    switch (cartasGanadasJ1) {
+                        case 1:
+                            btnC27.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 2:
+                            btnC33.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 3:
+                            btnC21.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 4:
+                            btnC35.setIcon(new javax.swing.ImageIcon(im1.getImage()));;
+                            break;
+                        case 5:
+                             btnC29.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 6:
+                             btnC34.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 7:
+                             btnC31.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 8:
+                             btnC32.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 9:
+                             btnC36.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                            
+                                        
+
+                        default:
+                            break;
+                    }
+                    cartasGanadasJ1++;
+                }
+                else if (turno==2){
+                    
+                    
+                }
+                // la segunda carta es igual que la primera (se hizo una pareja)
+                // im1 tiene la imagen de la carta que el jugador encontró 
             }
             caraUp = false;
         }
     }
+    
 
     private void reiniciar() {
 
@@ -112,14 +184,16 @@ public class JuegoMemoria extends javax.swing.JFrame {
 
         primerc = false;
         caraUp = false;
-        puntaje = 0;
+
     }
+    
+
 
     private void pregwin() {
         if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
                 && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled() &&!btnC17.isEnabled() && !btnC18.isEnabled()) {
-            JOptionPane.showMessageDialog(this, "Felicidades, usted ha ganado. Su puntaje es: " + puntaje, "Win!!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Felicidades, usted ha ganado. Su puntaje es: " , "Win!!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -148,10 +222,33 @@ public class JuegoMemoria extends javax.swing.JFrame {
         btnC18 = new javax.swing.JButton();
         btnC1 = new javax.swing.JButton();
         btnReiniciar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        btnC19 = new javax.swing.JButton();
+        btnC20 = new javax.swing.JButton();
+        btnC22 = new javax.swing.JButton();
+        btnC23 = new javax.swing.JButton();
+        btnC24 = new javax.swing.JButton();
+        btnC25 = new javax.swing.JButton();
+        btnC26 = new javax.swing.JButton();
+        btnC28 = new javax.swing.JButton();
+        btnC30 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        btnC21 = new javax.swing.JButton();
+        btnC27 = new javax.swing.JButton();
+        btnC29 = new javax.swing.JButton();
+        btnC31 = new javax.swing.JButton();
+        btnC32 = new javax.swing.JButton();
+        btnC33 = new javax.swing.JButton();
+        btnC34 = new javax.swing.JButton();
+        btnC35 = new javax.swing.JButton();
+        btnC36 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego Dos Caras");
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Super Bro Memory Game");
@@ -508,7 +605,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                         .addComponent(btnC4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnC17)))
-                .addContainerGap(536, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,7 +638,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                 .addGap(321, 321, 321))
         );
 
-        btnReiniciar.setBackground(new java.awt.Color(0, 0, 0));
+        btnReiniciar.setBackground(new java.awt.Color(204, 0, 0));
         btnReiniciar.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
         btnReiniciar.setForeground(new java.awt.Color(0, 51, 204));
         btnReiniciar.setText("Reiniciar");
@@ -551,6 +648,434 @@ public class JuegoMemoria extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel3.setText("Cartas encontradas del Jugador 1");
+
+        btnC19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC19.setBorder(null);
+        btnC19.setBorderPainted(false);
+        btnC19.setContentAreaFilled(false);
+        btnC19.setFocusable(false);
+        btnC19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC19MouseExited(evt);
+            }
+        });
+        btnC19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC19ActionPerformed(evt);
+            }
+        });
+
+        btnC20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC20.setBorder(null);
+        btnC20.setBorderPainted(false);
+        btnC20.setContentAreaFilled(false);
+        btnC20.setFocusable(false);
+        btnC20.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC20MouseExited(evt);
+            }
+        });
+        btnC20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC20ActionPerformed(evt);
+            }
+        });
+
+        btnC22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC22.setBorder(null);
+        btnC22.setBorderPainted(false);
+        btnC22.setContentAreaFilled(false);
+        btnC22.setFocusable(false);
+        btnC22.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC22MouseExited(evt);
+            }
+        });
+        btnC22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC22ActionPerformed(evt);
+            }
+        });
+
+        btnC23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC23.setBorder(null);
+        btnC23.setBorderPainted(false);
+        btnC23.setContentAreaFilled(false);
+        btnC23.setFocusable(false);
+        btnC23.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC23MouseExited(evt);
+            }
+        });
+        btnC23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC23ActionPerformed(evt);
+            }
+        });
+
+        btnC24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC24.setBorder(null);
+        btnC24.setBorderPainted(false);
+        btnC24.setContentAreaFilled(false);
+        btnC24.setFocusable(false);
+        btnC24.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC24MouseExited(evt);
+            }
+        });
+        btnC24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC24ActionPerformed(evt);
+            }
+        });
+
+        btnC25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC25.setBorder(null);
+        btnC25.setBorderPainted(false);
+        btnC25.setContentAreaFilled(false);
+        btnC25.setFocusable(false);
+        btnC25.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC25MouseExited(evt);
+            }
+        });
+        btnC25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC25ActionPerformed(evt);
+            }
+        });
+
+        btnC26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC26.setBorder(null);
+        btnC26.setBorderPainted(false);
+        btnC26.setContentAreaFilled(false);
+        btnC26.setFocusable(false);
+        btnC26.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC26MouseExited(evt);
+            }
+        });
+        btnC26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC26ActionPerformed(evt);
+            }
+        });
+
+        btnC28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC28.setBorder(null);
+        btnC28.setBorderPainted(false);
+        btnC28.setContentAreaFilled(false);
+        btnC28.setFocusable(false);
+        btnC28.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC28MouseExited(evt);
+            }
+        });
+        btnC28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC28ActionPerformed(evt);
+            }
+        });
+
+        btnC30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC30.setBorder(null);
+        btnC30.setBorderPainted(false);
+        btnC30.setContentAreaFilled(false);
+        btnC30.setFocusable(false);
+        btnC30.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC30MouseExited(evt);
+            }
+        });
+        btnC30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC30ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnC28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnC22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnC26))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnC23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnC24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC30))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnC20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC19))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel3)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC20)
+                    .addComponent(btnC19)
+                    .addComponent(btnC25))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC28)
+                    .addComponent(btnC22)
+                    .addComponent(btnC26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC24)
+                    .addComponent(btnC23)
+                    .addComponent(btnC30))
+                .addContainerGap())
+        );
+
+        jPanel3.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel4.setText("Cartas encontradas del Jugador 2");
+
+        btnC21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC21.setBorder(null);
+        btnC21.setBorderPainted(false);
+        btnC21.setContentAreaFilled(false);
+        btnC21.setFocusable(false);
+        btnC21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC21MouseExited(evt);
+            }
+        });
+        btnC21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC21ActionPerformed(evt);
+            }
+        });
+
+        btnC27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC27.setBorder(null);
+        btnC27.setBorderPainted(false);
+        btnC27.setContentAreaFilled(false);
+        btnC27.setFocusable(false);
+        btnC27.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC27MouseExited(evt);
+            }
+        });
+        btnC27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC27ActionPerformed(evt);
+            }
+        });
+
+        btnC29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC29.setBorder(null);
+        btnC29.setBorderPainted(false);
+        btnC29.setContentAreaFilled(false);
+        btnC29.setFocusable(false);
+        btnC29.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC29MouseExited(evt);
+            }
+        });
+        btnC29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC29ActionPerformed(evt);
+            }
+        });
+
+        btnC31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC31.setBorder(null);
+        btnC31.setBorderPainted(false);
+        btnC31.setContentAreaFilled(false);
+        btnC31.setFocusable(false);
+        btnC31.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC31MouseExited(evt);
+            }
+        });
+        btnC31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC31ActionPerformed(evt);
+            }
+        });
+
+        btnC32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC32.setBorder(null);
+        btnC32.setBorderPainted(false);
+        btnC32.setContentAreaFilled(false);
+        btnC32.setFocusable(false);
+        btnC32.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC32MouseExited(evt);
+            }
+        });
+        btnC32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC32ActionPerformed(evt);
+            }
+        });
+
+        btnC33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC33.setBorder(null);
+        btnC33.setBorderPainted(false);
+        btnC33.setContentAreaFilled(false);
+        btnC33.setFocusable(false);
+        btnC33.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC33MouseExited(evt);
+            }
+        });
+        btnC33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC33ActionPerformed(evt);
+            }
+        });
+
+        btnC34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC34.setBorder(null);
+        btnC34.setBorderPainted(false);
+        btnC34.setContentAreaFilled(false);
+        btnC34.setFocusable(false);
+        btnC34.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC34MouseExited(evt);
+            }
+        });
+        btnC34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC34ActionPerformed(evt);
+            }
+        });
+
+        btnC35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC35.setBorder(null);
+        btnC35.setBorderPainted(false);
+        btnC35.setContentAreaFilled(false);
+        btnC35.setFocusable(false);
+        btnC35.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC35MouseExited(evt);
+            }
+        });
+        btnC35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC35ActionPerformed(evt);
+            }
+        });
+
+        btnC36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
+        btnC36.setBorder(null);
+        btnC36.setBorderPainted(false);
+        btnC36.setContentAreaFilled(false);
+        btnC36.setFocusable(false);
+        btnC36.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/cr.png"))); // NOI18N
+        btnC36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnC36MouseExited(evt);
+            }
+        });
+        btnC36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnC36ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnC35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnC29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnC34))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(btnC31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnC32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC36))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(btnC27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnC21))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel4)))
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC27)
+                    .addComponent(btnC21)
+                    .addComponent(btnC33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC35)
+                    .addComponent(btnC29)
+                    .addComponent(btnC34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnC32)
+                    .addComponent(btnC31)
+                    .addComponent(btnC36))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -559,32 +1084,44 @@ public class JuegoMemoria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(694, 520));
+        setSize(new java.awt.Dimension(1239, 602));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC1ActionPerformed
         btnEnabled(btnC1);
+        
     }//GEN-LAST:event_btnC1ActionPerformed
 
     private void btnC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC2ActionPerformed
@@ -751,6 +1288,150 @@ public class JuegoMemoria extends javax.swing.JFrame {
          btnEnabled(btnC18);
     }//GEN-LAST:event_btnC18ActionPerformed
 
+    private void btnC19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC19MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC19MouseExited
+
+    private void btnC19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC19ActionPerformed
+
+    private void btnC20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC20MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC20MouseExited
+
+    private void btnC20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC20ActionPerformed
+
+    private void btnC22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC22MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC22MouseExited
+
+    private void btnC22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC22ActionPerformed
+
+    private void btnC23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC23MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC23MouseExited
+
+    private void btnC23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC23ActionPerformed
+
+    private void btnC24MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC24MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC24MouseExited
+
+    private void btnC24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC24ActionPerformed
+
+    private void btnC25MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC25MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC25MouseExited
+
+    private void btnC25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC25ActionPerformed
+
+    private void btnC26MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC26MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC26MouseExited
+
+    private void btnC26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC26ActionPerformed
+
+    private void btnC28MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC28MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC28MouseExited
+
+    private void btnC28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC28ActionPerformed
+
+    private void btnC30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC30MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC30MouseExited
+
+    private void btnC30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC30ActionPerformed
+
+    private void btnC21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC21MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC21MouseExited
+
+    private void btnC21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC21ActionPerformed
+
+    private void btnC27MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC27MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC27MouseExited
+
+    private void btnC27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC27ActionPerformed
+
+    private void btnC29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC29MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC29MouseExited
+
+    private void btnC29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC29ActionPerformed
+
+    private void btnC31MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC31MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC31MouseExited
+
+    private void btnC31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC31ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC31ActionPerformed
+
+    private void btnC32MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC32MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC32MouseExited
+
+    private void btnC32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC32ActionPerformed
+
+    private void btnC33MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC33MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC33MouseExited
+
+    private void btnC33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC33ActionPerformed
+
+    private void btnC34MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC34MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC34MouseExited
+
+    private void btnC34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC34ActionPerformed
+
+    private void btnC35MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC35MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC35MouseExited
+
+    private void btnC35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC35ActionPerformed
+
+    private void btnC36MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC36MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC36MouseExited
+
+    private void btnC36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnC36ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -793,8 +1474,26 @@ public class JuegoMemoria extends javax.swing.JFrame {
     private javax.swing.JButton btnC16;
     private javax.swing.JButton btnC17;
     private javax.swing.JButton btnC18;
+    private javax.swing.JButton btnC19;
     private javax.swing.JButton btnC2;
+    private javax.swing.JButton btnC20;
+    private javax.swing.JButton btnC21;
+    private javax.swing.JButton btnC22;
+    private javax.swing.JButton btnC23;
+    private javax.swing.JButton btnC24;
+    private javax.swing.JButton btnC25;
+    private javax.swing.JButton btnC26;
+    private javax.swing.JButton btnC27;
+    private javax.swing.JButton btnC28;
+    private javax.swing.JButton btnC29;
     private javax.swing.JButton btnC3;
+    private javax.swing.JButton btnC30;
+    private javax.swing.JButton btnC31;
+    private javax.swing.JButton btnC32;
+    private javax.swing.JButton btnC33;
+    private javax.swing.JButton btnC34;
+    private javax.swing.JButton btnC35;
+    private javax.swing.JButton btnC36;
     private javax.swing.JButton btnC4;
     private javax.swing.JButton btnC5;
     private javax.swing.JButton btnC6;
@@ -803,6 +1502,10 @@ public class JuegoMemoria extends javax.swing.JFrame {
     private javax.swing.JButton btnC9;
     private javax.swing.JButton btnReiniciar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

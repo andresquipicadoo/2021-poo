@@ -32,16 +32,16 @@ public class SopaLetras implements ActionListener {
 
     JLabel counter;
 
-    public SopaLetras(int length, int numeroPalabrass) {
+    public SopaLetras(int length, int numOfWords) {
         this.length = length;
 
-        this.cantPalabras = numeroPalabrass;
+        this.cantPalabras = numOfWords;
         ImageIcon img = new ImageIcon("C://Andres/Quiros/Netbeans/ Workspace/WordSearch/logo_tr.png");
         frame = new JFrame("Juego de Sopa de Letras !");
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setIconImage(img.getImage());
-        labels = new JLabel[numeroPalabrass];
+        labels = new JLabel[numOfWords];
 
         counter = new JLabel("");
         counter.setBounds(10, 10, 10, 10);
@@ -57,11 +57,11 @@ public class SopaLetras implements ActionListener {
 
     public void GenerarCuadricula() {
       
-        BuscadorDePalabras ws = new BuscadorDePalabras(4, length);
-        ws.Iniciar();
-        String board[][] = ws.getCuadriculaSopaletras();
-        listaPalabras = ws.getListaPaises();
-        palabraBuscar = (ArrayList<String>) ws.getListaPaises().clone();
+        BuscadorDePalabras bp = new BuscadorDePalabras(4, length);
+        bp.Iniciar();
+        String board[][] = bp.getCuadriculaSopaletras();
+        listaPalabras = bp.getListaPaises();
+        palabraBuscar = (ArrayList<String>) bp.getListaPaises().clone();
 
         frame.setVisible(true);
 
@@ -70,17 +70,16 @@ public class SopaLetras implements ActionListener {
 
         String[] letrasRandom = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-        Random rand = new Random();
+        Random r = new Random();
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
-                int n = Math.abs(rand.nextInt()) % 26;
+                int n = Math.abs(r.nextInt()) % 26;
                 Palabras btn;
                 if (board[i][j] == null) {
                     btn = new Palabras(letrasRandom[n], i, j);
                 } else {
                     btn = new Palabras(board[i][j], i, j);
-                
-                        
+                }
                 contenido.add(btn);
                 btn.addActionListener(this);
                 btnArr.add(btn);
@@ -88,7 +87,7 @@ public class SopaLetras implements ActionListener {
         }
 
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(5, 2, 30, 10));
+        bottomPanel.setLayout(new GridLayout(5, 2, 40, 10));
         for (int i = 0; i < cantPalabras; i++) {
             labels[i] = new JLabel(listaPalabras.get(i));
             bottomPanel.add(labels[i]);
@@ -97,16 +96,16 @@ public class SopaLetras implements ActionListener {
         bottomPanel.setBorder(new EmptyBorder(10, 20, 20, 20));
         contenido.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-        Container fram = frame.getContentPane();
-        fram.setLayout(new BoxLayout(fram, BoxLayout.Y_AXIS));
+        Container f = frame.getContentPane();
+        f.setLayout(new BoxLayout(f, BoxLayout.Y_AXIS));
 
-        fram.add(contenido);
-        fram.add(bottomPanel);
+        f.add(contenido);
+        f.add(bottomPanel);
         frame.pack();
 
     }
 
-    public void revisar() {
+    public void checkMatch() {
 
         if (palabraBuscar.contains(palabra)) {
             int index = listaPalabras.indexOf(palabra);
@@ -127,7 +126,7 @@ public class SopaLetras implements ActionListener {
 
            
             Object[] opciones = {"Jugar nuevamente", "Salir"};
-            int numero = JOptionPane.showOptionDialog(frame, "Ganaste", "Felicidades", JOptionPane.YES_NO_OPTION,
+            int numero = JOptionPane.showOptionDialog(frame, "Has ganado !", "Felicidades", JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[1]);
             if (numero == 0) {
                 frame.getContentPane().removeAll();
@@ -158,43 +157,29 @@ public class SopaLetras implements ActionListener {
                     return;
                 }
             } else {
-                if (botonSeleccionado.isEmpty()) {
+                if (botonSeleccionado.size() == 0) {
                     botonSeleccionado.add(btn);
                     palabra = btn.getLetra();
                 } else {
-                   
+                    
                     if (botonSeleccionado.size() == 1) {
                     
                         if (botonSeleccionado.get(0).getPosicionHorizontal() == btn.getPosicionHorizontal()) {
                             orientacionVertical = false;
                         } 
                         else if (botonSeleccionado.get(0).getPosicionVertical() == btn.getPosicionVertical()) {
-                           orientacionVertical = true;
-                             
-                        if(botonSeleccionado.get(0).getDiagonales()==btn.getDiagonales()){
-                           orientacionVertical = true;
-
-                       }
-                           
-                        } else { 
-                                        
-                        
-                        
-                                
-                        
+                            orientacionVertical = true;
+                        } else {
                             BorrarBotones();
                             botonSeleccionado.add(btn);
                             palabra = btn.getLetra();
                             btn.toggle();
                             return;
                         }
-                    }    
-                    
                     }
-                
 
                     if (orientacionVertical) {
-                    
+                        
                         if (btn.getPosicionHorizontal() == botonSeleccionado.get(0).getPosicionHorizontal() - 1 && btn.getPosicionVertical() == botonSeleccionado.get(0).getPosicionVertical()) {
                             botonSeleccionado.add(0, btn);
                             palabra = btn.getLetra() + palabra;
@@ -208,7 +193,7 @@ public class SopaLetras implements ActionListener {
                             palabra = btn.getLetra();
                         }
                     } else {
-                     
+                       
                         if (btn.getPosicionVertical() == botonSeleccionado.get(0).getPosicionVertical() - 1 && btn.getPosicionHorizontal() == botonSeleccionado.get(0).getPosicionHorizontal()) {
                             botonSeleccionado.add(0, btn);
                             palabra = btn.getLetra() + palabra;
@@ -221,18 +206,19 @@ public class SopaLetras implements ActionListener {
                             botonSeleccionado.add(btn);
                             palabra = btn.getLetra();
                         }
-                    
+                    }
+
                 }
             }
             btn.toggle();
-            revisar();
+            checkMatch();
         }
     }
 
     public void BorrarBotones() {
-        botonSeleccionado.forEach(b -> {
+        for (Palabras b : botonSeleccionado) {
             b.setSelected(false);
-        });
+        }
         botonSeleccionado.clear();
         palabra = "";
     }

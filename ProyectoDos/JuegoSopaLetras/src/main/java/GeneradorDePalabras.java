@@ -19,11 +19,11 @@ public class GeneradorDePalabras {
 			  FileInputStream fstream = new FileInputStream("palabras.txt");
 			 
 			  DataInputStream in = new DataInputStream(fstream);
-			  BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			  BufferedReader burfd = new BufferedReader(new InputStreamReader(in));
 			  String strLine;
 
 			
-			  while ((strLine = br.readLine()) != null)   {
+			  while ((strLine = burfd.readLine()) != null)   {
 				  dictar.add(strLine);
 			  }
 			  
@@ -37,7 +37,7 @@ public class GeneradorDePalabras {
 	
 	
 	public String GenerarPalabra(){
-		Integer num;
+		Integer n;
 		
 		while(true){
 			
@@ -45,13 +45,13 @@ public class GeneradorDePalabras {
 			if(numeroGenerado.size() == dictar.size())
 				return "";
 			
-			num = Math.abs(generador.nextInt()%dictar.size());
-			if(!numeroGenerado.contains(num)){
-				numeroGenerado.add(num);
+			n = Math.abs(generador.nextInt()%dictar.size());
+			if(!numeroGenerado.contains(n)){
+				numeroGenerado.add(n);
 				break;
 			}
 		}
-		return dictar.get(num).toUpperCase();
+		return dictar.get(n).toUpperCase();
 	}
 		
 }
