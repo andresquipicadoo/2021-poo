@@ -98,22 +98,25 @@ public class JuegoMemoria extends javax.swing.JFrame {
         if (caraUp && primerc) {
             
             if (im1.getDescription().compareTo(im2.getDescription()) != 0) {
-                // la segunda carta no es igual que la primera
+                 
                 pbtn[0].setEnabled(true);
                 pbtn[1].setEnabled(true);
              
                 // cambiar turno de jugador
                 if (turno == 1) {
-                    turno = 1;
+                    turno = 2;
+                       JOptionPane.showMessageDialog(null, "Es el turno del jugador 2 " , "Turno", JOptionPane.INFORMATION_MESSAGE);
+                       
                 }
                 else {
                     turno = 1;
+                     JOptionPane.showMessageDialog(null, "Es el turno del jugador 1 " , "Turno", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
             else {
                  
                 if (turno==2){
-                    switch (cartasGanadasJ1) {
+                    switch (cartasGanadasJ2) {
                         case 1:
                             btnC27.setIcon(new javax.swing.ImageIcon(im1.getImage()));
                             break;
@@ -147,9 +150,45 @@ public class JuegoMemoria extends javax.swing.JFrame {
                         default:
                             break;
                     }
-                    cartasGanadasJ1++;
+                    cartasGanadasJ2++;
+                   
                 }
-                else if (turno==2){
+                else if (turno==1){
+                     switch (cartasGanadasJ1) {
+                        case 1:
+                            btnC20.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 2:
+                            btnC19.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 3:
+                            btnC25.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 4:
+                            btnC28.setIcon(new javax.swing.ImageIcon(im1.getImage()));;
+                            break;
+                        case 5:
+                             btnC22.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 6:
+                             btnC26.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 7:
+                             btnC23.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 8:
+                             btnC24.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                        case 9:
+                             btnC30.setIcon(new javax.swing.ImageIcon(im1.getImage()));
+                            break;
+                            
+                                        
+
+                        default:
+                            break;
+                    }
+                    cartasGanadasJ1++;
                     
                     
                 }
@@ -193,7 +232,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
         if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
                 && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled() &&!btnC17.isEnabled() && !btnC18.isEnabled()) {
-            JOptionPane.showMessageDialog(null, "Felicidades, usted ha ganado. Su puntaje es: " , "Win!!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Win!!"+"Felicidades, usted ha ganado. Su puntaje es: "+ JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -648,9 +687,11 @@ public class JuegoMemoria extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cartas encontradas del Jugador 1");
 
         btnC19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
@@ -826,7 +867,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                                 .addComponent(btnC23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnC24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnC30))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btnC20)
@@ -837,7 +878,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel3)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -862,9 +903,11 @@ public class JuegoMemoria extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cartas encontradas del Jugador 2");
 
         btnC21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/memory/c0.png"))); // NOI18N
@@ -1051,7 +1094,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel4)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1068,12 +1111,12 @@ public class JuegoMemoria extends javax.swing.JFrame {
                     .addComponent(btnC35)
                     .addComponent(btnC29)
                     .addComponent(btnC34))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnC32)
                     .addComponent(btnC31)
                     .addComponent(btnC36))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1091,10 +1134,11 @@ public class JuegoMemoria extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel1)))
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1108,14 +1152,14 @@ public class JuegoMemoria extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1239, 602));
+        setSize(new java.awt.Dimension(1256, 602));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
