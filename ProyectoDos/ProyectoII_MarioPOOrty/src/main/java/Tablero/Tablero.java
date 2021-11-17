@@ -239,7 +239,7 @@ public class Tablero extends javax.swing.JFrame {
             }
 
             btnDado.setVisible(false);
-            casillas[posicionFicha].getFunction();
+            casillas[posicionFicha].getFunction(jugador);
         
 //        if ((posicionFicha+pos) == casillas.length){
 //            
@@ -297,7 +297,7 @@ public class Tablero extends javax.swing.JFrame {
     }
     
     public void jugarGato(){
-       GatoFrame g = new GatoFrame(jugador);
+       JuegoGato g = new JuegoGato(jugador);
        g.setVisible(true);
     }
     

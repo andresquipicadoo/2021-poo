@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import Tablero.Jugador;
 
 /**
  *
@@ -22,15 +23,15 @@ public class JuegoGato extends javax.swing.JFrame {
     private int contadorX = 0;
     private int contadorO = 0;
     int turnoJugador=1;
-    
+    private Jugador jugador;
    
     int numeroJugador = 0;
     
 
     
-    public JuegoGato() {
+    public JuegoGato(Jugador jugador) {
         initComponents();
-       
+       this.jugador = jugador;
     }
     private void Puntaje()
     {
@@ -469,7 +470,7 @@ public class JuegoGato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JuegoGato().setVisible(true);
+                new JuegoGato(null).setVisible(true);
             }
         });
     }

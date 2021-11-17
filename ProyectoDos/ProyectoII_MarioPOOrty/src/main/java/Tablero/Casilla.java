@@ -7,7 +7,7 @@ import CatchTheCat.BotonCirculo;
 import CollectTheCoins.*;
 import GuessWho.*;
 import MemoryPath.*;
-import tec.poo.proyectodos.gato.GatoFrame;
+import tec.poo.proyectodos.gato.JuegoGato;
 import tec.poo.proyectodos.sopaletras.*;
 import tec.poo.proyectodos.memory.gui.JuegoMemoria;
 import java.awt.Color;
@@ -41,7 +41,7 @@ public class Casilla extends JLabel{
         this.setIcon(iconoEscalado);
     }
     
-    public void getFunction(){
+    public void getFunction(Jugador jugador){
         switch(name){
             case "Bombermario":
                 new VentanaBombermario().setVisible(true);
@@ -59,7 +59,7 @@ public class Casilla extends JLabel{
                 new VentanaMemoryPath().setVisible(true);
                 break;
             case "Gato":
-                new GatoFrame().setVisible(true);
+                new JuegoGato(jugador).setVisible(true);
                 break;
             case "Super Bro Memory":
                  new JuegoMemoria().setVisible(true);
