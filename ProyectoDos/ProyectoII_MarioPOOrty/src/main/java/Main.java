@@ -1,12 +1,3 @@
-
-import BomberMario.*;
-import CatchTheCat.*;
-import CollectTheCoins.*;
-import GuessWho.*;
-import MemoryPath.*;
-import Tablero.*;
-
-
 public class Main {
     public static void main(String args[]) {
         //new VentanaCatchTheCat().setVisible(true);
@@ -19,11 +10,11 @@ public class Main {
         //new Tablero(player).setVisible(true);
         //Servidor servidor = new Servidor(2);
         //servidor.runServer();
-        
+
         //String player[] = {"mario", "luigi"};
         //new Tablero(player).setVisible(true);
-                
-        
+
+
     }
 }
     

@@ -6,10 +6,8 @@ package tec.poo.proyectodos.memory.gui;
 
 import tec.poo.proyectodos.memory.auxiliar.LogicaJuego;
 
-import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class JuegoMemoria extends javax.swing.JFrame {
@@ -22,21 +20,75 @@ public class JuegoMemoria extends javax.swing.JFrame {
     private JButton[] pbtn = new JButton[2];
     private boolean primerc = false;
     private int puntaje = 0;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnC1;
+    private javax.swing.JButton btnC10;
+    private javax.swing.JButton btnC11;
+    private javax.swing.JButton btnC12;
+    private javax.swing.JButton btnC13;
+    private javax.swing.JButton btnC14;
+    private javax.swing.JButton btnC15;
+    private javax.swing.JButton btnC16;
+    private javax.swing.JButton btnC17;
+    private javax.swing.JButton btnC18;
+    private javax.swing.JButton btnC2;
+    private javax.swing.JButton btnC3;
+    private javax.swing.JButton btnC4;
+    private javax.swing.JButton btnC5;
+    private javax.swing.JButton btnC6;
+    private javax.swing.JButton btnC7;
+    private javax.swing.JButton btnC8;
+    private javax.swing.JButton btnC9;
+    private javax.swing.JButton btnReiniciar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
 
     public JuegoMemoria() {
         initComponents();
-        
+
         fondo = new FondoJuego(getWidth(), getHeight());
         add(fondo, BorderLayout.CENTER);
         setCards();
-        
-        
+
+
+    }
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JuegoMemoria().setVisible(true);
+            }
+        });
     }
 
     private void setCards() {
         int[] numbers = log.getCardNumbers();
-        
-        
+
+
         btnC1.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[0] + ".png")));
         btnC2.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[1] + ".png")));
         btnC3.setDisabledIcon(new ImageIcon(getClass().getResource("/memory/c" + numbers[2] + ".png")));
@@ -118,7 +170,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
     private void pregwin() {
         if (!btnC1.isEnabled() && !btnC2.isEnabled() && !btnC3.isEnabled() && !btnC4.isEnabled() && !btnC5.isEnabled() && !btnC6.isEnabled()
                 && !btnC7.isEnabled() && !btnC8.isEnabled() && !btnC9.isEnabled() && !btnC10.isEnabled() && !btnC11.isEnabled()
-                && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled() &&!btnC17.isEnabled() && !btnC18.isEnabled()) {
+                && !btnC12.isEnabled() && !btnC13.isEnabled() && !btnC14.isEnabled() && !btnC15.isEnabled() && !btnC16.isEnabled() && !btnC17.isEnabled() && !btnC18.isEnabled()) {
             JOptionPane.showMessageDialog(this, "Felicidades, usted ha ganado. Su puntaje es: " + puntaje, "Win!!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -468,77 +520,77 @@ public class JuegoMemoria extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnC2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC1)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnC7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC11))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnC5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnC13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC15))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnC16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnC18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnC17)))
-                .addContainerGap(536, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btnC2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC1)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(btnC7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC11))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btnC5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnC13)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC15))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btnC16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnC18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnC17)))
+                                .addContainerGap(536, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnC2)
-                    .addComponent(btnC3)
-                    .addComponent(btnC1)
-                    .addComponent(btnC7)
-                    .addComponent(btnC6)
-                    .addComponent(btnC11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnC5)
-                        .addComponent(btnC13)
-                        .addComponent(btnC14)
-                        .addComponent(btnC15))
-                    .addComponent(btnC10)
-                    .addComponent(btnC9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnC16)
-                    .addComponent(btnC12)
-                    .addComponent(btnC8)
-                    .addComponent(btnC18)
-                    .addComponent(btnC4)
-                    .addComponent(btnC17))
-                .addGap(321, 321, 321))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnC2)
+                                        .addComponent(btnC3)
+                                        .addComponent(btnC1)
+                                        .addComponent(btnC7)
+                                        .addComponent(btnC6)
+                                        .addComponent(btnC11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(btnC5)
+                                                .addComponent(btnC13)
+                                                .addComponent(btnC14)
+                                                .addComponent(btnC15))
+                                        .addComponent(btnC10)
+                                        .addComponent(btnC9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnC16)
+                                        .addComponent(btnC12)
+                                        .addComponent(btnC8)
+                                        .addComponent(btnC18)
+                                        .addComponent(btnC4)
+                                        .addComponent(btnC17))
+                                .addGap(321, 321, 321))
         );
 
         btnReiniciar.setBackground(new java.awt.Color(204, 0, 0));
@@ -554,29 +606,29 @@ public class JuegoMemoria extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(50, 50, 50)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(179, 179, 179)
+                                                .addComponent(jLabel1)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(694, 520));
@@ -708,7 +760,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnC12MouseExited
 
     private void btnC13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC13MouseExited
-        // TODO add your handling code here:        
+        // TODO add your handling code here:
         compare();
     }//GEN-LAST:event_btnC13MouseExited
 
@@ -738,7 +790,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
 
     private void btnC17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC17ActionPerformed
         // TODO add your handling code here:
-         btnEnabled(btnC17);
+        btnEnabled(btnC17);
     }//GEN-LAST:event_btnC17ActionPerformed
 
     private void btnC18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnC18MouseExited
@@ -748,61 +800,7 @@ public class JuegoMemoria extends javax.swing.JFrame {
 
     private void btnC18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnC18ActionPerformed
         // TODO add your handling code here:
-         btnEnabled(btnC18);
+        btnEnabled(btnC18);
     }//GEN-LAST:event_btnC18ActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JuegoMemoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JuegoMemoria().setVisible(true);
-            }
-        });
-    }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnC1;
-    private javax.swing.JButton btnC10;
-    private javax.swing.JButton btnC11;
-    private javax.swing.JButton btnC12;
-    private javax.swing.JButton btnC13;
-    private javax.swing.JButton btnC14;
-    private javax.swing.JButton btnC15;
-    private javax.swing.JButton btnC16;
-    private javax.swing.JButton btnC17;
-    private javax.swing.JButton btnC18;
-    private javax.swing.JButton btnC2;
-    private javax.swing.JButton btnC3;
-    private javax.swing.JButton btnC4;
-    private javax.swing.JButton btnC5;
-    private javax.swing.JButton btnC6;
-    private javax.swing.JButton btnC7;
-    private javax.swing.JButton btnC8;
-    private javax.swing.JButton btnC9;
-    private javax.swing.JButton btnReiniciar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

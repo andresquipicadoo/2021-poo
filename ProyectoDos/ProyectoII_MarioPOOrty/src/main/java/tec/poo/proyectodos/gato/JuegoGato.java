@@ -6,53 +6,100 @@
 
 package tec.poo.proyectodos.gato;
 
-import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import Tablero.Jugador;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
- *
  * @author aquir
  */
 public class JuegoGato extends javax.swing.JFrame {
-   
+
+    int turnoJugador = 1;
+    int numeroJugador = 0;
     private String IniciarJuegoGato = "X";
     private int contadorX = 0;
     private int contadorO = 0;
-    int turnoJugador=1;
     private Jugador jugador;
-   
-    int numeroJugador = 0;
-    
-
-    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
+    private javax.swing.JButton btn5;
+    private javax.swing.JButton btn6;
+    private javax.swing.JButton btn7;
+    private javax.swing.JButton btn8;
+    private javax.swing.JButton btn9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jugadorO;
+    private javax.swing.JLabel jugadorX;
     public JuegoGato(Jugador jugador) {
         initComponents();
-       this.jugador = jugador;
+        this.jugador = jugador;
     }
-    private void Puntaje()
-    {
-        jugadorX.setText(String.valueOf(contadorX));
-       jugadorO.setText(String.valueOf(contadorO));
-    }
-    
-    private void seleccionarJugador()
-    {
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
-            IniciarJuegoGato = "O";
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        else
-        {
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new JuegoGato(null).setVisible(true);
+            }
+        });
+    }
+
+    private void Puntaje() {
+        jugadorX.setText(String.valueOf(contadorX));
+        jugadorO.setText(String.valueOf(contadorO));
+    }
+
+    private void seleccionarJugador() {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
+            IniciarJuegoGato = "O";
+        } else {
             IniciarJuegoGato = "X";
         }
     }
-    
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,52 +206,52 @@ public class JuegoGato extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(202, 202, 202))
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                                        .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(202, 202, 202))
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                    .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                        .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                        .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                                .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btn8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, 546, -1));
@@ -226,53 +273,53 @@ public class JuegoGato extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jugadorO, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(260, 260, 260)
+                                                .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel2)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGap(8, 8, 8)
+                                                                .addComponent(jugadorO, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jugadorO, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jugadorO, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
+                                .addComponent(jugadorX, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel3)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1043, 627));
@@ -284,12 +331,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn7.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn7.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn7.setForeground(Color.BLUE);
         }
 
@@ -301,12 +345,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn8.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn8.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn8.setForeground(Color.BLUE);
         }
 
@@ -318,12 +359,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn4.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn4.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn4.setForeground(Color.BLUE);
         }
 
@@ -335,12 +373,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn1.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn1.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn1.setForeground(Color.BLUE);
         }
 
@@ -352,12 +387,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn5.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn5.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn5.setForeground(Color.BLUE);
         }
 
@@ -369,12 +401,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn9.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn9.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn9.setForeground(Color.BLUE);
         }
 
@@ -386,12 +415,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn6.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn6.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn6.setForeground(Color.BLUE);
         }
 
@@ -403,12 +429,9 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn2.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn2.setForeground(Color.BLACK);
-        }
-        else if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        } else if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn2.setForeground(Color.BLUE);
         }
 
@@ -420,291 +443,195 @@ public class JuegoGato extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn3.setText(IniciarJuegoGato);
 
-        if(IniciarJuegoGato.equalsIgnoreCase("X"))
-        {
+        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
             btn3.setForeground(Color.BLACK);
-        }
-        else
-        {
+        } else {
             btn3.setForeground(Color.BLUE);
         }
 
         seleccionarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn3ActionPerformed
-     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JuegoGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JuegoGato(null).setVisible(true);
-            }
-        });
-    }
-     private void GanadorJuego()
-    {
+    private void GanadorJuego() {
         String bt1 = btn1.getText();
         String bt2 = btn2.getText();
         String bt3 = btn3.getText();
-       
+
         String bt4 = btn4.getText();
         String bt5 = btn5.getText();
         String bt6 = btn6.getText();
-        
+
         String bt7 = btn7.getText();
         String bt8 = btn8.getText();
         String bt9 = btn9.getText();
-        
-        
-      
-        
-        if(bt1 == ("X") && bt2 ==("X") && bt3 == ("X"))
-        {
+
+
+        if (bt1 == ("X") && bt2 == ("X") && bt3 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn1.setBackground(Color.red);
             btn2.setBackground(Color.red);
             btn3.setBackground(Color.red);
-            
+
         }
-        
-        if((bt4 == null ? ("X") == null : bt4.equals("X")) && bt5 ==("X") && bt6 == ("X"))
-        {
+
+        if ((bt4 == null ? ("X") == null : bt4.equals("X")) && bt5 == ("X") && bt6 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn4.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn6.setBackground(Color.red);           
+            btn6.setBackground(Color.red);
         }
-         
-        if(bt7 == ("X") && bt8 ==("X") && bt9 == ("X"))
-        {
+
+        if (bt7 == ("X") && bt8 == ("X") && bt9 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn7.setBackground(Color.red);
             btn8.setBackground(Color.red);
-            btn9.setBackground(Color.red);           
+            btn9.setBackground(Color.red);
         }
-        
-        if(bt1 == ("X") && bt4 ==("X") && bt7 == ("X"))
-        {
+
+        if (bt1 == ("X") && bt4 == ("X") && bt7 == ("X")) {
             JOptionPane.showMessageDialog(this, " Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn1.setBackground(Color.red);
             btn4.setBackground(Color.red);
-            btn7.setBackground(Color.red);           
+            btn7.setBackground(Color.red);
         }
-        
-        if(bt2 == ("X") && bt5 ==("X") && bt8 == ("X"))
-        {
+
+        if (bt2 == ("X") && bt5 == ("X") && bt8 == ("X")) {
             JOptionPane.showMessageDialog(this, "Felicades jugador X ganador", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn2.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn8.setBackground(Color.red);           
+            btn8.setBackground(Color.red);
         }
-        if(bt3 == ("X") && bt6 ==("X") && bt9 == ("X"))
-        {
+        if (bt3 == ("X") && bt6 == ("X") && bt9 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn3.setBackground(Color.red);
             btn6.setBackground(Color.red);
-            btn9.setBackground(Color.red);           
+            btn9.setBackground(Color.red);
         }
-        
-        
-        if(bt1 == ("X") && bt5 ==("X") && bt9 == ("X"))
-        {
+
+
+        if (bt1 == ("X") && bt5 == ("X") && bt9 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn1.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn9.setBackground(Color.red);           
+            btn9.setBackground(Color.red);
         }
-        
-        if(bt3.equals("X") && bt5 ==("X") && bt7 == ("X"))
-        {
+
+        if (bt3.equals("X") && bt5 == ("X") && bt7 == ("X")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Gato", JOptionPane.INFORMATION_MESSAGE);
             contadorX++;
             Puntaje();
-            
+
             btn3.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn7.setBackground(Color.red);           
+            btn7.setBackground(Color.red);
         }
-        
-        
-        
-        
-        
-        
-        if(bt1.equals("O") && bt2 ==("O") && bt3 == ("O"))
-        {
+
+
+        if (bt1.equals("O") && bt2 == ("O") && bt3 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador o gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn1.setBackground(Color.DARK_GRAY);
             btn2.setBackground(Color.DARK_GRAY);
             btn3.setBackground(Color.DARK_GRAY);
-            
+
         }
-        
-        if(bt4.equals("O") && bt5 ==("O") && bt6 == ("O"))
-        {
+
+        if (bt4.equals("O") && bt5 == ("O") && bt6 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn4.setBackground(Color.DARK_GRAY);
             btn5.setBackground(Color.red);
-            btn6.setBackground(Color.red);           
+            btn6.setBackground(Color.red);
         }
-         
-        if(bt7.equals("O") && bt8 ==("O") && bt9 == ("O"))
-        {
+
+        if (bt7.equals("O") && bt8 == ("O") && bt9 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn7.setBackground(Color.YELLOW);
             btn8.setBackground(Color.YELLOW);
-            btn9.setBackground(Color.YELLOW);           
+            btn9.setBackground(Color.YELLOW);
         }
-        
-        if(bt1.equals("O") && bt4 ==("O") && bt7 == ("O"))
-        {
+
+        if (bt1.equals("O") && bt4 == ("O") && bt7 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador X gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn1.setBackground(Color.red);
             btn4.setBackground(Color.red);
-            btn7.setBackground(Color.red);           
+            btn7.setBackground(Color.red);
         }
-        
-        if(bt2.equals("O") && bt5 ==("O") && bt8 == ("O"))
-        {
+
+        if (bt2.equals("O") && bt5 == ("O") && bt8 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn2.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn8.setBackground(Color.red);           
+            btn8.setBackground(Color.red);
         }
-        if(bt3.equals("O") && bt6 ==("O") && bt9 == ("O"))
-        {
+        if (bt3.equals("O") && bt6 == ("O") && bt9 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn3.setBackground(Color.red);
             btn6.setBackground(Color.red);
-            btn9.setBackground(Color.red);           
+            btn9.setBackground(Color.red);
         }
-        
-        
-        if(bt1.equals("O") && bt5 ==("O") && bt9 == ("O"))
-        {
+
+
+        if (bt1.equals("O") && bt5 == ("O") && bt9 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn1.setBackground(Color.BLUE);
             btn5.setBackground(Color.BLUE);
-            btn9.setBackground(Color.BLUE);       
-        
+            btn9.setBackground(Color.BLUE);
+
         }
-        
-        if(bt3 == ("O") && bt5 ==("O") && bt7 == ("O"))
-        {
+
+        if (bt3 == ("O") && bt5 == ("O") && bt7 == ("O")) {
             JOptionPane.showMessageDialog(this, "! Felicidades el jugador O gana", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             contadorO++;
             Puntaje();
-            
+
             btn3.setBackground(Color.red);
             btn5.setBackground(Color.red);
-            btn7.setBackground(Color.red);           
+            btn7.setBackground(Color.red);
         }
-       
-       
-        
-        
-    }
-    
-   
-    
-    
-    
-    
-    
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn1;
-    private javax.swing.JButton btn2;
-    private javax.swing.JButton btn3;
-    private javax.swing.JButton btn4;
-    private javax.swing.JButton btn5;
-    private javax.swing.JButton btn6;
-    private javax.swing.JButton btn7;
-    private javax.swing.JButton btn8;
-    private javax.swing.JButton btn9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel jugadorO;
-    private javax.swing.JLabel jugadorX;
+
+    }
     // End of variables declaration//GEN-END:variables
 }

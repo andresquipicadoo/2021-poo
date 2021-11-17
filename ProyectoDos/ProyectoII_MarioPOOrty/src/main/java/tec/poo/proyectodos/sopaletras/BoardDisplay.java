@@ -11,22 +11,21 @@ import java.util.Random;
 
 public class BoardDisplay implements ActionListener {
 
-    Timer timer;
-
-    int segundos, minutos;
-    DecimalFormat dformat = new DecimalFormat("00");
-    String ddSecond, ddMinute;
-    JLabel counter;
     private final JFrame frame;
     private final ArrayList<LetterButton> btnArr = new ArrayList<LetterButton>(); //the array of buttons in the wordsearch
     private final JLabel[] labels; //array of labels
     private final int length; //length of the wordsearch
     private final ArrayList<LetterButton> selectedBtns = new ArrayList<LetterButton>();    //list of buttons that are selected by the user
+    private final int numOfWords;
+    Timer timer;
+    int segundos, minutos;
+    DecimalFormat dformat = new DecimalFormat("00");
+    String ddSecond, ddMinute;
+    JLabel counter;
     private boolean letterVerticalOrientation;
     private ArrayList<String> wordsToFind = new ArrayList<String>(); //list of words that are left to find
     private ArrayList<String> wordList = new ArrayList<String>();    //list of all the words in the wordsearch
     private String word = "";    //the word the user formed so far by clicking the buttons
-    private final int numOfWords;
 
     public BoardDisplay(int length, int numOfWords) {
         this.length = length;
@@ -50,7 +49,7 @@ public class BoardDisplay implements ActionListener {
     }
 
     public void buildGrid() {
-        
+
         WordsearchGenerator ws = new WordsearchGenerator(4, length);
         ws.setUp();
         String[][] board = ws.getBoard();
@@ -74,7 +73,7 @@ public class BoardDisplay implements ActionListener {
                 } else {
                     btn = new LetterButton(board[i][j], i, j);
                 }
-                
+
                 content.add(btn);
                 btn.addActionListener(this);
                 btnArr.add(btn);
@@ -155,17 +154,15 @@ public class BoardDisplay implements ActionListener {
                     selectedBtns.add(btn);
                     word = btn.getLetter();
                 } else {
-                   
+
                     if (selectedBtns.size() == 1) {
-                    
+
                         if (selectedBtns.get(0).getXPos() == btn.getXPos()) {
                             letterVerticalOrientation = false;
-                        } 
-                        else if (selectedBtns.get(0).getYPos() == btn.getYPos()) {
+                        } else if (selectedBtns.get(0).getYPos() == btn.getYPos()) {
                             letterVerticalOrientation = true;
-                        }
-                        else if (selectedBtns.get(0).getdiagonal() == btn.getdiagonal()) {
-                            letterVerticalOrientation = true;    
+                        } else if (selectedBtns.get(0).getdiagonal() == btn.getdiagonal()) {
+                            letterVerticalOrientation = true;
                         } else {
                             clearSelectedBtns();
                             selectedBtns.add(btn);
@@ -176,12 +173,11 @@ public class BoardDisplay implements ActionListener {
                     }
 
                     if (letterVerticalOrientation) {
-                       
+
                         if (btn.getXPos() == selectedBtns.get(0).getXPos() - 1 && btn.getYPos() == selectedBtns.get(0).getYPos()) {
                             selectedBtns.add(0, btn);
                             word = btn.getLetter() + word;
-                        }
-                        else if (btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos() + 1 && btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos()) {
+                        } else if (btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos() + 1 && btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos()) {
                             selectedBtns.add(btn);
                             word = word + btn.getLetter();
                         } else {
@@ -190,12 +186,11 @@ public class BoardDisplay implements ActionListener {
                             word = btn.getLetter();
                         }
                     } else {
-                       
-                        if (btn.getdiagonal()== selectedBtns.get(0).getYPos() - 1 && btn.getXPos() == selectedBtns.get(0).getdiagonal()) {
+
+                        if (btn.getdiagonal() == selectedBtns.get(0).getYPos() - 1 && btn.getXPos() == selectedBtns.get(0).getdiagonal()) {
                             selectedBtns.add(0, btn);
                             word = btn.getLetter() + word;
-                        }
-                        else if (btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos() + 1 && btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos()) {
+                        } else if (btn.getYPos() == selectedBtns.get(selectedBtns.size() - 1).getYPos() + 1 && btn.getXPos() == selectedBtns.get(selectedBtns.size() - 1).getXPos()) {
                             word = word + btn.getLetter();
                             selectedBtns.add(btn);
                         } else {
@@ -204,7 +199,7 @@ public class BoardDisplay implements ActionListener {
                             word = btn.getLetter();
                         }
                     }
-                }  
+                }
             }
             btn.toggle();
             checkMatch();

@@ -1,12 +1,8 @@
-
 package MemoryPath;
 
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 
 public class VentanaMemoryPath extends javax.swing.JFrame {
@@ -21,68 +17,69 @@ public class VentanaMemoryPath extends javax.swing.JFrame {
         initLabels();
         initCasillas();
     }
-    
-    private void initLabels(){
+
+    private void initLabels() {
         mario.setBounds(50, 350, 50, 50);
         Image imgEscalada = new ImageIcon("marioMemoryPath.png").getImage().getScaledInstance(mario.getWidth(), mario.getHeight(), Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         mario.setIcon(iconoEscalado);
         this.add(mario);
-        
+
         estrella.setBounds(50, 0, 50, 50);
         imgEscalada = new ImageIcon("estrella.png").getImage().getScaledInstance(estrella.getWidth(), estrella.getHeight(), Image.SCALE_SMOOTH);
         iconoEscalado = new ImageIcon(imgEscalada);
         estrella.setIcon(iconoEscalado);
         this.add(estrella);
     }
-    
-    private void initCasillas(){
+
+    private void initCasillas() {
         int value;
-        for (int fila=0; fila<6; fila++){
+        for (int fila = 0; fila < 6; fila++) {
             int random = rn.nextInt(3);
-            for (int col=0; col<3; col++){
+            for (int col = 0; col < 3; col++) {
                 value = 0;
                 if (random == col)
                     value = 1;
-                CasillasMP casilla = new CasillasMP(col*50, fila*50+50, this, value);
+                CasillasMP casilla = new CasillasMP(col * 50, fila * 50 + 50, this, value);
                 casillas[fila][col] = casilla;
                 this.add(casilla);
             }
         }
     }
-    
-    public int getMarioY(){
+
+    public int getMarioY() {
         return mario.getY();
     }
-    
-    public void moveMario(int value, int x, int y){
-        if(value==1){
+
+    public void moveMario(int value, int x, int y) {
+        if (value == 1) {
             mario.setLocation(x, y);
             setButtonActual(false);
-        }else{
+        } else {
             mario.setLocation(50, 350);
             setAllButtonsVisible();
             oportunidades--;
         }
-        if (mario.getY()==50){
+        if (mario.getY() == 50) {
             JOptionPane.showMessageDialog(this, "Ganó", "Llegó a la estrella", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        if (oportunidades==0)
+        if (oportunidades == 0)
             JOptionPane.showMessageDialog(this, "Perdió", "Se acabaron sus opotunidades", JOptionPane.ERROR_MESSAGE);
     }
-    
-    private void setButtonActual(boolean visible){
-        casillas[(mario.getY()-50)/50][mario.getX()/50].setVisible(visible);
+
+    private void setButtonActual(boolean visible) {
+        casillas[(mario.getY() - 50) / 50][mario.getX() / 50].setVisible(visible);
     }
-    private void setAllButtonsVisible(){
-        for (int fila=0; fila<6; fila++){
-            for (int col=0; col<3; col++){
+
+    private void setAllButtonsVisible() {
+        for (int fila = 0; fila < 6; fila++) {
+            for (int col = 0; col < 3; col++) {
                 casillas[fila][col].setVisible(true);
             }
         }
     }
-    
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -95,12 +92,12 @@ public class VentanaMemoryPath extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 150, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
 
         pack();

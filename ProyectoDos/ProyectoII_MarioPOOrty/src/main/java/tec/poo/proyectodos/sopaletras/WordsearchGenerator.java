@@ -7,11 +7,11 @@ import java.util.Random;
 
 public class WordsearchGenerator {
 
-    private int numeroPalabras;
-    private String[][] board;
     private final GeneradorPalabras generator;
     private final ArrayList<String> listOfWords = new ArrayList<String>();
     private final int length;
+    private int numeroPalabras;
+    private String[][] board;
 
     public WordsearchGenerator(int numOfWords, int length) {
         generator = new GeneradorPalabras();
@@ -39,7 +39,7 @@ public class WordsearchGenerator {
             //determine if the word will be vertical or horizontal
             boolean vertical;
             int n = (rand.nextInt()) % 2;
-			vertical = n == 0;
+            vertical = n == 0;
 
 
             //generate a row 0 to the length - 1
@@ -128,7 +128,7 @@ public class WordsearchGenerator {
             }
             numGenerated++;
         }
-        
+
     }
 
 

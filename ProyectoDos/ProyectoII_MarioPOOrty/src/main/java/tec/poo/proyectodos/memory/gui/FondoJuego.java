@@ -4,24 +4,23 @@
  */
 package tec.poo.proyectodos.memory.gui;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 
 public class FondoJuego extends javax.swing.JPanel {
 
-   
+
     public FondoJuego(int w, int h) {
         initComponents();
-        
+
         setSize(w, h);
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
+
         /* reemplazar el uso de "../imagenes/..." por "/imagenes/..." */
         Image im = new ImageIcon(getClass().getResource("/memory/fondo.JPG")).getImage();
         g.drawImage(im, 0, 0, getWidth(), getHeight(), null);
@@ -41,12 +40,12 @@ public class FondoJuego extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
