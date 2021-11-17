@@ -47,6 +47,12 @@ public class ThreadJugador extends Thread {
                         int y = entrada.readInt();
                         tablero.moveFicha(nombre, x, y);
                         break;
+                    case 1000:
+                        // iniciar juego gato como subordinado
+                        tablero.jugarGato();
+                        break;
+                    case 1001:
+                        break;
                 }
             } catch (IOException e) {
                 System.out.println("Error en la comunicaci�n " + "Informaci�n para el usuario");

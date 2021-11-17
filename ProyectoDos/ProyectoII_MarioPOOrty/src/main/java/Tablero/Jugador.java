@@ -59,4 +59,12 @@ public class Jugador extends Socket {
     public String getNombre() {
         return nomCliente;
     }
+
+    public DataOutputStream getSalida() {
+        return salida;
+    }
+
+    public DataInputStream getEntrada() {
+        return entrada;
+    }
 }

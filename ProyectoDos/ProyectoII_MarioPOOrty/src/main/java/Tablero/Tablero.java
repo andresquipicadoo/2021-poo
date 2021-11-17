@@ -305,7 +305,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void jugarGato() {
-        JuegoGato g = new JuegoGato(jugador);
+        JuegoGato g = new JuegoGato(jugador, JuegoGato.MODO.SUBORDINADO);
         g.setVisible(true);
     }
     // End of variables declaration//GEN-END:variables

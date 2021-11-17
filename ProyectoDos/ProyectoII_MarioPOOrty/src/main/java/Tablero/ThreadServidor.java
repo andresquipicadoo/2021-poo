@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Random;
 
 public class ThreadServidor extends Thread {
     Socket cliente = null;//referencia a socket de comunicacion de cliente
@@ -17,6 +18,26 @@ public class ThreadServidor extends Thread {
     ThreadServidor enemigos[] = null;
     // identificar el numero de jugador
     int numeroDeJugador;
+    Random random = new Random(123);
+    //
+    Gato gato = null;
+
+    static class Gato {
+        ThreadServidor otro;
+        Gato(ThreadServidor o) {
+            otro = o;
+        }
+    }
+
+    void jugandoGato(ThreadServidor ts) {
+        gato = new Gato(ts);
+        ts.gato = new Gato(this);
+    }
+
+    void terminarGato() {
+        gato.otro.gato = null;
+        gato = null;
+    }
 
     public ThreadServidor(Socket cliente, Servidor serv, int numeroDeJugador) {
         this.cliente = cliente;
@@ -108,12 +129,55 @@ public class ThreadServidor extends Thread {
                             todos[i].salida.writeInt(y);
                         }
                         break;
-
+                    case 1000:
+                        // iniciar juego de gato
+                        iniciarGato();
+                        break;
+                    case 1001:
+                        // notificar movida de gato
+                        if (gato != null) {
+                            movidaGato();
+                        }
+                        break;
+                    case 1002:
+                        terminarGato();
+                        break;
                 }
             } catch (IOException e) {
                 System.out.println("El cliente termino la conexion");
                 break;
             }
+        }
+    }
+
+    private void movidaGato() {
+        try {
+            int pos = entrada.readInt();
+            String car = entrada.readUTF();
+            gato.otro.salida.writeInt(1001);
+            gato.otro.salida.writeInt(pos);
+            gato.otro.salida.writeUTF(car);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void iniciarGato() {
+        int i = random.nextInt(todos.length);
+        // indicar en salida el jugador escogido
+        try {
+            jugandoGato(todos[i]);
+            // primero se notifica al jugador que inicio el gato
+            salida.writeInt(i);
+            salida.writeUTF(gato.otro.nameUser);
+            // luego al escogido
+
+            todos[i].salida.writeInt(1000);
+            todos[i].salida.writeInt(numeroDeJugador);
+            todos[i].salida.writeUTF(nameUser);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

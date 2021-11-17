@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -105,10 +106,11 @@ public class Servidor {
 
     private ArrayList<String> initCasillasName() {
         ArrayList<String> casillasNameElim = new ArrayList<String>();
-        String array[] = {"Gato", "Gato", "SopaDeLetras", "SopaDeLetras", "MemoryPath", "MemoryPath", "SuperBrosMemory",
-                "SuperBrosMemory", "CatchTheCat", "CatchTheCat", "Bombermario", "Bombermario", "GuessWho", "GuessWho",
-                "CollectTheCoins", "CollectTheCoins", "MarioCards", "MarioCards", "eCárcel", "eTubo",
-                "eTubo", "eTubo", "eEstrella", "eFuego", "eHielo", "eCola"};
+//        String array[] = {"Gato", "Gato", "SopaDeLetras", "SopaDeLetras", "MemoryPath", "MemoryPath", "SuperBrosMemory",
+//                "SuperBrosMemory", "CatchTheCat", "CatchTheCat", "Bombermario", "Bombermario", "GuessWho", "GuessWho",
+//                "CollectTheCoins", "CollectTheCoins", "MarioCards", "MarioCards", "eCárcel", "eTubo",
+//                "eTubo", "eTubo", "eEstrella", "eFuego", "eHielo", "eCola"};
+        String array[] = Collections.nCopies(26, "Gato").toArray(new String[26]);
         for (String i : array)
             casillasNameElim.add(i);
         return casillasNameElim;

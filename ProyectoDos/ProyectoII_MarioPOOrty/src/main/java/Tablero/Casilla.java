@@ -52,7 +52,7 @@ public class Casilla extends JLabel {
                 new VentanaMemoryPath().setVisible(true);
                 break;
             case "Gato":
-                new JuegoGato(jugador).setVisible(true);
+                new JuegoGato(jugador, JuegoGato.MODO.PRINCIPAL).setVisible(true);
                 break;
             case "Super Bro Memory":
                 new JuegoMemoria().setVisible(true);

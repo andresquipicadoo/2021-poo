@@ -10,6 +10,9 @@ import Tablero.Jugador;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 /**
  * @author aquir
@@ -18,7 +21,7 @@ public class JuegoGato extends javax.swing.JFrame {
 
     int turnoJugador = 1;
     int numeroJugador = 0;
-    private String IniciarJuegoGato = "X";
+    private String fichaGato = "X";
     private int contadorX = 0;
     private int contadorO = 0;
     private Jugador jugador;
@@ -41,9 +44,83 @@ public class JuegoGato extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jugadorO;
     private javax.swing.JLabel jugadorX;
-    public JuegoGato(Jugador jugador) {
+
+    public enum MODO {PRINCIPAL, SUBORDINADO}
+
+    // datos del otro jugador
+    private int otroJugador;
+    private String nombreOtroJugador;
+    private MODO modo;
+
+    public JuegoGato(Jugador jugador, MODO modo) {
+        this.modo = modo;
         initComponents();
         this.jugador = jugador;
+        iniciarGato();
+    }
+
+    private void iniciarGato() {
+        if (modo == MODO.PRINCIPAL) {
+            DataOutputStream salida = jugador.getSalida();
+            DataInputStream entrada = jugador.getEntrada();
+            try {
+                salida.writeInt(1000);
+                otroJugador = entrada.readInt();
+                nombreOtroJugador = entrada.readUTF();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            fichaGato = "O";
+            esperarOtroJugador();
+        }
+    }
+
+    private void esperarOtroJugador() {
+        try {
+            int codigo = jugador.getEntrada().readInt();
+            switch (codigo) {
+                case 1001:
+                    procesarJugada();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void procesarJugada() throws IOException {
+        int pos = jugador.getEntrada().readInt();
+        String car = jugador.getEntrada().readUTF();
+        switch (pos) {
+            case 1:
+                activarBoton(btn6, car);
+                break;
+            case 2:
+                activarBoton(btn9, car);
+                break;
+            case 3:
+                activarBoton(btn3, car);
+                break;
+            case 4:
+                activarBoton(btn5, car);
+                break;
+            case 5:
+                activarBoton(btn2, car);
+                break;
+            case 6:
+                activarBoton(btn1, car);
+                break;
+            case 7:
+                activarBoton(btn4, car);
+                break;
+            case 8:
+                activarBoton(btn8, car);
+                break;
+            case 9:
+                activarBoton(btn7, car);
+                break;
+        }
     }
 
     /**
@@ -83,7 +160,7 @@ public class JuegoGato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JuegoGato(null).setVisible(true);
+                new JuegoGato(null, MODO.PRINCIPAL).setVisible(true);
             }
         });
     }
@@ -93,12 +170,8 @@ public class JuegoGato extends javax.swing.JFrame {
         jugadorO.setText(String.valueOf(contadorO));
     }
 
-    private void seleccionarJugador() {
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            IniciarJuegoGato = "O";
-        } else {
-            IniciarJuegoGato = "X";
-        }
+    private void cambiarJugador() {
+        esperarOtroJugador();
     }
 
     /**
@@ -327,129 +400,97 @@ public class JuegoGato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void activarBoton(JButton boton, String ficha) {
+        boton.setText(ficha);
+        if (ficha.equals("X")) {
+            boton.setForeground(Color.BLACK);
+        }
+        else {
+            boton.setForeground(Color.BLUE);
+        }
+        boton.setEnabled(false);
+    }
+
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
-        btn7.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn7.setForeground(Color.BLACK);
-        } else {
-            btn7.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn7, fichaGato);
+        enviarJugada(9, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn7ActionPerformed
 
+    private void enviarJugada(int pos, String fichaGato) {
+        try {
+            jugador.getSalida().writeInt(1001);
+            jugador.getSalida().writeInt(pos);
+            jugador.getSalida().writeUTF(fichaGato);
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
-        btn8.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn8.setForeground(Color.BLACK);
-        } else {
-            btn8.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn8, fichaGato);
+        enviarJugada(8, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
-        btn4.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn4.setForeground(Color.BLACK);
-        } else {
-            btn4.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn4, fichaGato);
+        enviarJugada(7, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-        btn1.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn1.setForeground(Color.BLACK);
-        } else {
-            btn1.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn1, fichaGato);
+        enviarJugada(6, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
-        btn5.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn5.setForeground(Color.BLACK);
-        } else {
-            btn5.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn5, fichaGato);
+        enviarJugada(4, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
-        btn9.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn9.setForeground(Color.BLACK);
-        } else {
-            btn9.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn9, fichaGato);
+        enviarJugada(2, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         // TODO add your handling code here:
-        btn6.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn6.setForeground(Color.BLACK);
-        } else {
-            btn6.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn6, fichaGato);
+        enviarJugada(1, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
-        btn2.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn2.setForeground(Color.BLACK);
-        } else if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn2.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn2, fichaGato);
+        enviarJugada(5, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
-        btn3.setText(IniciarJuegoGato);
-
-        if (IniciarJuegoGato.equalsIgnoreCase("X")) {
-            btn3.setForeground(Color.BLACK);
-        } else {
-            btn3.setForeground(Color.BLUE);
-        }
-
-        seleccionarJugador();
+        activarBoton(btn3, fichaGato);
+        enviarJugada(3, fichaGato);
+        cambiarJugador();
         GanadorJuego();
     }//GEN-LAST:event_btn3ActionPerformed
 
